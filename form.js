@@ -2,9 +2,8 @@ let currentIndex = 0;
 
 const questions = [
   "How do you prefer to collaborate?",
-  // "How do you prefer to collaborate?",
-  // "How do you prefer to collaborate?",
-  // "How do you prefer to collaborate?",
+  "What type of music?",
+  "Test question?",
 ];
 
 const colors = [
