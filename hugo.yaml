@@ -1,0 +1,9 @@
+baseURL: https://example.org/
+languageCode: nl-NL
+title: Boomchick Collective
+defaultContentLanguage: nl
+
+disableKinds:
+  - section
+  - taxonomy
+  - term

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+  <form id="dynamicForm">
+    {{ range site.Data.bandkiezer.questions }}
+    {{ $questionId := .id }}
+    <section class="question {{ if (findRE `^q\d+[a-z]` .id ) }}hidden{{ end }}" id="{{ $questionId }}">
+      <div class="container">
+      <h3>{{ .title }}</h3>
+      {{ if eq .type "multiplechoice" }}
+      <ul class="answers">
+        {{ range .answers }}
+        <li>
+          <label>
+            {{- .text -}}
+            <input
+              type="radio"
+              id="{{ $questionId }}{{ .text }}"
+              name="{{ $questionId }}"
+              value="{{ .text }}"
+              {{ if .goto }}
+              onchange="handleGoto({{ .goto }})"
+              {{ end }}
+            >
+          </label>
+        </li>
+        {{ end }}
+      </ul>
+      {{ else if eq .type "date" }}
+      <input type="date" name="{{ $questionId }}" value="">
+      {{ else if eq .type "text" }}
+      <input type="text" name="{{ $questionId }}" value="">
+      {{ else if eq .type "longtext" }}
+      <textarea rows="" cols=""></textarea>
+      {{ else if eq .type "checkbox" }}
+      <ul class="answers">
+        {{ range .answers }}
+        <li>
+          <label>
+            {{- .text -}}
+            <input type="checkbox" id="{{ $questionId }}{{ .text }}" name="{{ $questionId }}" value="{{ .text }}">
+          </label>
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
+      <div class="nav-buttons">
+        <button type="button" onclick="prevPage({{- $questionId -}})">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"></path></svg>
+          <div class="button-label">Previous</div>
+        </button>
+        <button type="button" onclick="nextPage({{- $questionId -}})">
+          <div class="button-label">Next</div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+      </div>
+      </div>
+    </section>
+  {{ end }}
+  </form>
+  <script src="/js/form.js"></script>
+</body>
+
+</html>

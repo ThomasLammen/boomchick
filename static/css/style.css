@@ -1,0 +1,114 @@
+@font-face {
+  font-family: Genty;
+  src: url(/fonts/genty-sans-regular.woff);
+}
+
+:root {
+  font-family: Genty;
+  --color-blue: #51ABB2;
+  --color-orange: #E16539;
+  --color-grey: #F0DFC8;
+  --color-black: #333232;
+  --color-white: #FFFFFF;
+  --scroll-speed: 0.8s;
+}
+
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+#dynamicForm {
+  /* display: flex; */
+  /* flex-direction: column; */
+  align-items: center;
+  /* justify-content: center; */
+  transition: transform var(--scroll-speed) ease-in-out;
+}
+
+.question {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: lightblue;
+}
+
+h3 {
+  font-size: 3em;
+}
+
+.container {
+  width: 80vw;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.answers {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.answers>li {
+  background: #eee;
+  min-height: 10vh;
+  font-size: 2em;
+}
+
+.answers>li:nth-last-child(1):nth-child(odd) {
+  grid-column: span 2;
+}
+
+.answers label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 0.5em;
+}
+
+button, .answers>li {
+	background-color: rgba(255, 255, 255, 0.4);
+	font-family: Genty;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+button {
+	padding: 10px 15px;
+	border: none;
+	display: flex;
+	align-items: end;
+	gap: 5px;
+}
+
+input[type="radio"] {
+  display: none;
+}
