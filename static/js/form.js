@@ -3,13 +3,25 @@ function handleGoto(value) {
   const regex = new RegExp(`^${parent}[a-z]$`);
   document.querySelectorAll('[id]').forEach(el => {
     if (regex.test(el.id)) {
-      el.style.display = el.id === value ? 'block' : 'none';
+      if (el.id === value) {
+        el.classList.remove('hidden');
+      } else {
+        el.classList.add('hidden');
+      }
     }
   });
 }
 
-function updateView(target) {
-  document.getElementById("dynamicForm").style.transform = `translateY(-${target * 100}vh)`;
+function scrollQuestionPage(current, direction) {
+  const form = document.getElementById('dynamicForm');
+  const curr = document.getElementById(current);
+  const questions = Array.from(form.children).filter(el =>
+    getComputedStyle(el).display !== 'none'
+  );
+  const pos = questions.indexOf(curr) + direction;
+  if (0 <= pos && pos < questions.length) {
+    document.getElementById("dynamicForm").style.transform = `translateY(-${pos * 100}vh)`;
+  }
   // updateProgressBar();
 }
 
@@ -19,16 +31,9 @@ function updateProgressBar() {
 }
 
 function nextPage(current) {
-  // console.log(current);
-  // updateView(current + 1);
-  // if (currentIndex < pages.length - 1) {
-  //   currentIndex++;
-  //   updateView();
-  // }
+  scrollQuestionPage(current, 1);
 }
 
 function prevPage(current) {
-  if (current > 0) {
-    updateView(current - 1);
-  }
+  scrollQuestionPage(current, -1);
 }
