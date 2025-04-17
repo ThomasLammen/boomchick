@@ -1,0 +1,39 @@
+.menu {
+  cursor: pointer;
+}
+
+.line {
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke: var(--color-black);
+  transition: all 500ms;
+}
+
+.top {
+  transform-origin: 26px 40px;
+}
+
+.middle {
+  stroke-dasharray: 60 60;
+}
+
+.bottom {
+  transform-origin: 26px 60px;
+}
+
+.menu.cross .line {
+  stroke: var(--color-orange);
+}
+
+.menu.cross .top {
+  transform: rotate(45deg);
+}
+
+.menu.cross .middle {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+}
+
+.menu.cross .bottom {
+  transform: rotate(-45deg);
+}
