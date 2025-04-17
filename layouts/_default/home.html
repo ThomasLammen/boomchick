@@ -1,52 +1,9 @@
 {{ define "content" }}
-<main>
-	<header>
-		<div class="wave-wrapper">
-			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="waves"
-				zoomAndPan="magnify" preserveAspectRatio="none" version="1.0" viewBox="200 750 2100 600">
-				<g clip-path="url(#35229cd503)">
-					<path fill="#f0dfc8"
-						d="M 2122.550781 895.203125 C 2217.386719 821.53125 2312.085938 747.859375 2406.789062 674.054688 C 2312.085938 729.046875 2217.386719 783.910156 2122.550781 838.773438 C 1992.1875 914.40625 1849.808594 993.695312 1670.984375 1010.804688 C 1396.277344 1037.0625 1143.78125 908.789062 866.335938 897.421875 C 579.613281 885.667969 313.007812 1004.273438 165.535156 1152.792969 C 89.378906 1229.601562 38.699219 1313.332031 0.6875 1399.9375 L 0.6875 1648.253906 C 38.699219 1531.996094 89.378906 1419.660156 165.535156 1316.597656 C 313.140625 1117.265625 579.613281 958.03125 866.335938 973.839844 C 1143.78125 989.121094 1396.277344 1161.414062 1670.984375 1126.148438 C 1849.808594 1103.15625 1992.1875 996.699219 2122.550781 895.203125 Z M 2122.550781 895.203125 "
-						fill-opacity="1" fill-rule="nonzero"></path>
-				</g>
-				<g clip-path="url(#78afcedd14)">
-					<path fill="#51abb2"
-						d="M 2406.789062 674.054688 L 0.6875 674.054688 L 0.6875 1410.125 C 38.699219 1322.34375 89.378906 1237.308594 165.535156 1159.585938 C 313.140625 1008.976562 579.613281 888.539062 866.335938 900.558594 C 1143.78125 912.183594 1396.277344 1042.15625 1670.984375 1015.636719 C 1849.808594 998.265625 1992.058594 917.929688 2122.550781 841.125 C 2217.386719 785.476562 2312.085938 729.832031 2406.789062 674.054688 Z M 2406.789062 674.054688 "
-						fill-opacity="1" fill-rule="nonzero"></path>
-				</g>
-				<g clip-path="url(#01af6114cf)">
-					<path fill="#303030"
-						d="M 0.6875 1138.6875 C 38.699219 1083.300781 89.378906 1029.617188 165.535156 980.5 C 313.140625 885.40625 579.613281 809.511719 866.335938 816.957031 C 1143.78125 824.273438 1396.277344 906.4375 1670.984375 889.585938 C 1849.808594 878.613281 1992.058594 827.929688 2122.550781 779.46875 C 2217.253906 744.332031 2312.085938 709.191406 2406.789062 674.054688 L 0.6875 674.054688 Z M 0.6875 1138.6875 "
-						fill-opacity="1" fill-rule="nonzero"></path>
-				</g>
-			</svg>
-		</div>
-		<div class="header-content">
-			<img src="/media/logo-cropped.svg" alt="" class="logo">
-			<div>
-				<h1>{{ .Title }}</h1>
-				<!-- <p>The perfect live music for every occasion.<br>Good vibes guaranteed.</p> -->
-			</div>
-			<div class="menu">
-				<svg width="100" height="100" viewBox="0 0 100 100">
-					<path class="line top" d="M 20,30 H 80" />
-					<path class="line middle" d="M 20,50 H 80" />
-					<path class="line bottom" d="M 20,70 H 80" />
-				</svg>
-			</div>
-		</div>
-	</header>
+<main style="background-color: var(--color-beige); height: 100vh;";>
 
-	<div id="bandkiezer">
-		<a href="/bandkiezer/">check welke muziek het beste bij jou past</a>
-	</div>
-
-	<section>
-		lorem ipsum
-	</section>
-
-	{{ .Content }}
-
+	<center style="padding-top: 2em;">
+		<img src="/media/logo-cropped.svg" alt="" style="height: 50vh; max-width: 90vw;">
+		<p style="font-size: 3em; color: var(--color-black);">Coming soon!</p>
+	</center>
 </main>
-<script src="/js/hamburger.js"></script>
 {{ end }}
