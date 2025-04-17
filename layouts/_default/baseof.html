@@ -7,15 +7,24 @@
 		<meta name="author" content="{{ site.Title }}">
 		<meta name="robots" content="index, follow">
 
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Boomchick" />
+		<link rel="manifest" href="/site.webmanifest" />
+
 		{{ template "_internal/opengraph.html" . }}
 
 		{{ template "_internal/twitter_cards.html" . }}
 
 		{{ template "_internal/schema.html" . }}
-		<title></title>
+
 		<link href="css/style.css" rel="stylesheet">
+
+		<title>{{ if not .IsHome }}{{ .Path | humanize }} | {{ end }}{{ site.Title }}</title>
 	</head>
 	<body>
-	
+		{{- block "content" . }}{{- end }}
 	</body>
 </html>

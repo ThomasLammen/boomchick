@@ -1,4 +1,4 @@
-baseURL: https://example.org/
+baseURL: https://boomchickcollective.nl/
 languageCode: nl-NL
 title: Boomchick Collective
 defaultContentLanguage: nl
@@ -12,5 +12,4 @@ params:
   shortDescription:
   description:
   images:
-    -
-  favicon:
+    - /media/bierviltje-voorkant.png
