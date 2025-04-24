@@ -1,4 +1,4 @@
-.menu {
+.hamburger {
   cursor: pointer;
 }
 
@@ -21,19 +21,19 @@
   transform-origin: 26px 60px;
 }
 
-.menu.cross .line {
+.hamburger.cross .line {
   stroke: var(--color-orange);
 }
 
-.menu.cross .top {
+.hamburger.cross .top {
   transform: rotate(45deg);
 }
 
-.menu.cross .middle {
+.hamburger.cross .middle {
   stroke-dasharray: 1 60;
   stroke-dashoffset: -30;
 }
 
-.menu.cross .bottom {
+.hamburger.cross .bottom {
   transform: rotate(-45deg);
 }

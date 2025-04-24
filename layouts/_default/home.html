@@ -1,5 +1,5 @@
 {{ define "content" }}
-<nav>
+<nav class="menu">
 	<ol>
 		{{- $currentPageURL := page.RelPermalink -}}
 		{{ range site.Menus.nav }}
@@ -16,7 +16,7 @@
 		<div>
 			<h1>{{ site.Title }}</h1>
 		</div>
-		<div class="menu">
+		<div class="hamburger">
 			<svg width="70" height="70" viewBox="0 0 100 100">
 				<path class="line top" d="M 20,30 H 80" />
 				<path class="line middle" d="M 20,50 H 80" />
