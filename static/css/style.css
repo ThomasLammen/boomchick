@@ -164,9 +164,18 @@ header p {
   margin: 0;
 }
 
-.wave-wrapper {
+header .wave-wrapper {
   transform: rotate(180deg);
   position: relative;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+
+  & .wave-wrapper {
+    transform: rotateY(180deg);
+  }
 }
 
 #waves {
@@ -178,16 +187,6 @@ header p {
   height: 17em;
   max-height: 20vw;
 }
-
-@media (max-width:480px) {
-  header h1 {
-    font-size: 2em;
-  }
-  .header-content {
-    margin-top: -3em;
-  }
-}
-
 
 #bandkiezer {
   margin: 40px auto;
@@ -207,5 +206,97 @@ header p {
     color: var(--color-white);
     text-decoration: none;
     text-transform: uppercase;
+  }
+}
+
+#tagline {
+  margin: 0 auto;
+  margin-top: 20px;
+  width: fit-content;
+}
+
+@media (max-width:480px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  .header-content {
+    margin-top: -3em;
+  }
+
+  #bandkiezer {
+    width: 95vw;
+    font-size: 1em;
+    padding: 0 5px;
+  }
+}
+
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-black);
+  color: var(--color-white);
+
+  position: relative;
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+
+  &.active {
+    max-height: 1000px;
+  }
+
+  & ol {
+    padding: 2em 0;
+    margin: 0 auto;
+    width: 80%;
+
+    li {
+      list-style: none;
+      text-align: center;
+      padding: .6em;
+
+      &.current {
+        color: var(--color-orange);
+      }
+
+      & a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+
+  }
+}
+
+@media (min-width: 450px) {
+  .header-content {
+    margin-top: -10em;
+    justify-content: space-between;
+  }
+
+  nav {
+    transition: max-height 0.6s ease-in-out;
+
+    & ol {
+      border: none;
+      width: 100%;
+      display: flex;
+
+      li {
+        padding: 0;
+        margin: 0;
+        flex: 1;
+        text-align: center;
+
+        &:not(:last-child) {
+          border-right: 2px solid var(--color-white);
+        }
+      }
+    }
   }
 }

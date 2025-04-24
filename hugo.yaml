@@ -13,3 +13,18 @@ params:
   description:
   images:
     - /media/bierviltje-voorkant.png
+
+menus:
+  nav:
+  - name: Homepagina
+    pageRef: /
+    weight: 1
+  - name: Bandkiezer
+    pageRef: /bandkiezer
+    weight: 2
+  - name: Over ons
+    pageRef: /over-ons
+    weight: 3
+  - name: Contact
+    pageRef: /contact
+    weight: 4
