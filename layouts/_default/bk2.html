@@ -1,0 +1,98 @@
+{{ define "content" }}
+<nav class="menu">
+	<ol>
+		{{- $currentPageURL := page.RelPermalink -}}
+		{{ range site.Menus.nav }}
+		<li {{ if (eq $currentPageURL .URL) -}}class="current" {{- end }}><a href="{{ .URL }}">{{ .Name }}</a></li>
+		{{- end }}
+	</ol>
+</nav>
+<header>
+	{{ partial "wave.html" }}
+	<div class="header-content">
+		<a href="/">
+			<img src="/media/logo-cropped.svg" alt="" class="logo">
+		</a>
+		<div>
+			<h1>{{ site.Title }}</h1>
+		</div>
+		<div class="hamburger">
+			<svg width="70" height="70" viewBox="0 0 100 100">
+				<path class="line top" d="M 20,30 H 80" />
+				<path class="line middle" d="M 20,50 H 80" />
+				<path class="line bottom" d="M 20,70 H 80" />
+			</svg>
+		</div>
+	</div>
+</header>
+<main>
+	<div id="bandkiezer">
+
+		<form id="dynamicForm">
+			{{ range site.Data.bandkiezer.questions }}
+			{{ $questionId := .id }}
+			<section class="question {{ if (findRE `^q\d+[a-z]` .id ) }}hidden{{ end }}" id="{{ $questionId }}">
+				<div class="container">
+					<h3>{{ .title }}</h3>
+					{{ if eq .type "multiplechoice" }}
+					<ul class="answers">
+						{{ range .answers }}
+						<li>
+							<label>
+								{{- .text -}}
+								<input type="radio" id="{{ $questionId }}{{ .text }}" name="{{ $questionId }}"
+									value="{{ .text }}" {{ if .goto }} onchange="handleGoto({{ .goto }})" {{ end }}>
+							</label>
+						</li>
+						{{ end }}
+					</ul>
+					{{ else if eq .type "date" }}
+					<input type="date" name="{{ $questionId }}" value="">
+					{{ else if eq .type "text" }}
+					<input type="text" name="{{ $questionId }}" value="">
+					{{ else if eq .type "longtext" }}
+					<textarea rows="" cols=""></textarea>
+					{{ else if eq .type "checkbox" }}
+					<ul class="answers">
+						{{ range .answers }}
+						<li>
+							<label>
+								{{- .text -}}
+								<input type="checkbox" id="{{ $questionId }}{{ .text }}" name="{{ $questionId }}"
+									value="{{ .text }}">
+							</label>
+						</li>
+						{{ end }}
+					</ul>
+					{{ end }}
+					<div class="nav-buttons">
+						<button type="button" onclick="prevPage({{- $questionId -}})">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<path d="m18 15-6-6-6 6"></path>
+							</svg>
+							<div class="button-label">Previous</div>
+						</button>
+						<button type="button" onclick="nextPage({{- $questionId -}})">
+							<div class="button-label">Next</div>
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<path d="m6 9 6 6 6-6"></path>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</section>
+			{{ end }}
+		</form>
+	</div>
+	<script src="/js/form.js"></script>
+	<div id="progress-bar"></div>
+</main>
+<footer>
+	{{ partial "wave.html" }}
+</footer>
+<script src="/js/hamburger.js"></script>
+{{ end }}

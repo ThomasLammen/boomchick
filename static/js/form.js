@@ -18,15 +18,13 @@ function scrollQuestionPage(current, direction) {
   const questions = Array.from(form.children).filter(el =>
     getComputedStyle(el).display !== 'none'
   );
-  const pos = questions.indexOf(curr) + direction;
+  const currpos = questions.indexOf(curr);
+  const pos = currpos + direction;
   if (0 <= pos && pos < questions.length) {
     document.getElementById("dynamicForm").style.transform = `translateY(-${pos * 100}vh)`;
   }
-  // updateProgressBar();
-}
 
-function updateProgressBar() {
-  const progress = (currentIndex + 1) / pages.length * 100;
+  const progress = pos / questions.length * 100;
   document.getElementById("progress-bar").style.width = progress + "%";
 }
 
