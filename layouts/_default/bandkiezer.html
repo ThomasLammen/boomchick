@@ -2,9 +2,10 @@
 <main>
 	<div id="bandkiezer">
 
-		<form id="dynamicForm">
+		<form id="dynamicForm" action="https://formsubmit.co/4bf6ed9a7a7295ace593bdb70668ff5d" method="POST">
 			{{ range site.Data.bandkiezer.questions }}
 			{{ $questionId := .id }}
+			{{ $qTitle := .title }}
 			<section class="question {{ if (findRE `^q\d+[a-z]` .id ) }}hidden{{ end }}" id="{{ $questionId }}">
 				<div class="container">
 					<h3>{{ .title }}</h3>
@@ -14,16 +15,16 @@
 						<li>
 							<label>
 								{{- .text -}}
-								<input type="radio" id="{{ $questionId }}{{ .text }}" name="{{ $questionId }}"
+								<input type="radio" id="{{ $questionId }}{{ .text }}" name="{{ $qTitle }}"
 									value="{{ .text }}" {{ if .goto }} onchange="handleGoto({{ .goto }})" {{ end }}>
 							</label>
 						</li>
 						{{ end }}
 					</ul>
 					{{ else if eq .type "date" }}
-					<input type="date" name="{{ $questionId }}" value="">
+					<input type="date" name="{{ $qTitle }}" value="">
 					{{ else if eq .type "text" }}
-					<input type="text" name="{{ $questionId }}" value="">
+					<input type="text" name="{{ $qTitle }}" value="">
 					{{ else if eq .type "longtext" }}
 					<textarea rows="" cols=""></textarea>
 					{{ else if eq .type "checkbox" }}
@@ -32,7 +33,7 @@
 						<li>
 							<label>
 								{{- .text -}}
-								<input type="checkbox" id="{{ $questionId }}{{ .text }}" name="{{ $questionId }}"
+								<input type="checkbox" id="{{ $questionId }}{{ .text }}" name="{{ $qTitle }}"
 									value="{{ .text }}">
 							</label>
 						</li>
@@ -60,6 +61,11 @@
 				</div>
 			</section>
 			{{ end }}
+			<section class="question">
+				<input type="email" name="email" placeholder="Email Address">
+				<input type="hidden" name="_next" value='{{ (site.GetPage "/contact/").Permalink }}'>
+				<button type="submit">Indienen!</button>
+			</section>
 		</form>
 	</div>
 	<script src="/js/form.js"></script>
