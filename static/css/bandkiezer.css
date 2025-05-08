@@ -3,6 +3,15 @@
   top: 0;
 }
 
+body {
+  overflow: hidden;
+}
+
+main {
+  margin: 0;
+  margin-top: 0;
+}
+
 #dynamicForm {
   /* display: flex; */
   /* flex-direction: column; */
@@ -18,12 +27,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
-  background-color: grey;
+  color: var(--color-black);
+  background-color: var(--color-white);
 }
 
 h3 {
-  font-size: 3em;
+  font-size: 2em;
   margin-top: 0;
 }
 
@@ -52,7 +61,7 @@ h3 {
   font-size: 1rem;
 
   &:has(label > input:checked) {
-    border: 3px solid yellow;
+    border: 3px solid var(--color-blue);
   }
 }
 
@@ -82,7 +91,7 @@ h3 {
 
 button,
 .answers>li {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: var(--color-beige);
   font-family: 'Genty Sans';
   border-radius: 6px;
   cursor: pointer;

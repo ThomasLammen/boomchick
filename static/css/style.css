@@ -27,7 +27,6 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
   background-color: var(--color-white);
 }
 
@@ -37,6 +36,11 @@ header {
   & .wave-wrapper {
     z-index: 2;
   }
+
+  & a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 .header-content {
@@ -45,7 +49,10 @@ header {
   gap: 1rem;
   margin: 0 10px;
   z-index: 100;
-  position: relative;
+  position: absolute;
+  top: 35px;
+  width: 95vw;
+  height: 0;
 }
 
 .logo {
@@ -53,6 +60,12 @@ header {
   max-width: 300px;
   margin-left: 2vw;
   transition: transform 1s ease-in-out;
+}
+
+main {
+  max-width: 90vw;
+  margin: 0 auto;
+  margin-top: 3em;
 }
 
 header h1 {
@@ -93,12 +106,12 @@ footer {
   position: relative;
   transform: rotate(180deg);
   height: 17em;
-  max-height: 20vw;
+  max-height: 150px;
 }
 
 #big-button {
   margin: 40px auto;
-  width: 80vw;
+  max-width: 60vw;
   text-align: center;
   background-color: var(--color-orange);
   height: 2.5em;
@@ -126,10 +139,6 @@ footer {
 @media (max-width:480px) {
   header h1 {
     font-size: 2em;
-  }
-
-  .header-content {
-    margin-top: -3em;
   }
 
   #big-button {
@@ -162,7 +171,7 @@ nav.menu {
     padding: 0;
     margin: 0;
     width: 100%;
-    padding-top: 120px;
+    padding-top: 140px;
     background-color: var(--color-black);
 
     li {
@@ -185,8 +194,15 @@ nav.menu {
 
 @media (min-width: 450px) {
   .header-content {
-    margin-top: -10em;
     justify-content: space-between;
+
+    & h1 {
+      font-size: 4em;
+    }
+  }
+
+  main {
+    margin-left: max(25vw, 300px);
   }
 
   nav.menu {

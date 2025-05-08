@@ -23,7 +23,9 @@
 
 	<link href="/css/style.css" rel="stylesheet">
 	<link href="/css/hamburger.css" rel="stylesheet">
+	{{ if (eq .RelPermalink "/bandkiezer/") }}
 	<link href="/css/bandkiezer.css" rel="stylesheet">
+	{{ end }}
 
 	<title>{{ if not .IsHome }}{{ .Path | humanize }} | {{ end }}{{ site.Title }}</title>
 </head>
