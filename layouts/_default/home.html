@@ -1,30 +1,4 @@
 {{ define "content" }}
-<nav class="menu">
-	<ol>
-		{{- $currentPageURL := page.RelPermalink -}}
-		{{ range site.Menus.nav }}
-		<li {{ if (eq $currentPageURL .URL) -}}class="current"{{- end }}><a href="{{ .URL }}">{{ .Name }}</a></li>
-		{{- end }}
-	</ol>
-</nav>
-<header>
-	{{ partial "wave.html" }}
-	<div class="header-content">
-		<a href="/">
-			<img src="/media/logo-cropped.svg" alt="" class="logo">
-		</a>
-		<div>
-			<h1>{{ site.Title }}</h1>
-		</div>
-		<div class="hamburger">
-			<svg width="70" height="70" viewBox="0 0 100 100">
-				<path class="line top" d="M 20,30 H 80" />
-				<path class="line middle" d="M 20,50 H 80" />
-				<path class="line bottom" d="M 20,70 H 80" />
-			</svg>
-		</div>
-	</div>
-</header>
 <main>
 	<p id="tagline">The perfect live music for every occasion.<br>Good vibes guaranteed.</p>
 	<div id="big-button">
@@ -34,8 +8,4 @@
 	</section>
 	{{ .Content }}
 </main>
-<footer>
-	{{ partial "wave.html" }}
-</footer>
-<script src="/js/hamburger.js"></script>
 {{ end }}

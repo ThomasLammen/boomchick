@@ -1,0 +1,9 @@
+<nav class="menu">
+	<ol>
+		{{- $currentPageURL := page.RelPermalink -}}
+		{{ range site.Data.nav.nav }}
+		<li {{ if (eq $currentPageURL .page) -}}class="current" {{- end }}><a href="{{ .page }}">{{ .name }}</a></li>
+		{{- end }}
+	</ol>
+	{{ partial "wave.html" }}
+</nav>

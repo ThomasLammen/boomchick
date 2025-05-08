@@ -33,15 +33,18 @@ html {
 
 header {
   position: relative;
-  z-index: 100;
   color: var(--color-black);
+  & .wave-wrapper {
+    z-index: 2;
+  }
 }
 
 .header-content {
   display: flex;
   align-items: flex-start;
-  gap: 2rem;
-  z-index: 10;
+  gap: 1rem;
+  margin: 0 10px;
+  z-index: 100;
   position: relative;
 }
 
@@ -69,7 +72,7 @@ header p {
   margin: 0;
 }
 
-header .wave-wrapper {
+.wave-wrapper {
   transform: rotate(180deg);
   position: relative;
 }
@@ -139,13 +142,13 @@ footer {
 
 nav.menu {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-black);
   color: var(--color-white);
-  z-index: 1000;
+  z-index: 15;
+  position: fixed;
 
-  position: relative;
   width: 100%;
   max-height: 0;
   overflow: hidden;
@@ -156,9 +159,11 @@ nav.menu {
   }
 
   & ol {
-    padding: 2em 0;
-    margin: 0 auto;
-    width: 80%;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    padding-top: 120px;
+    background-color: var(--color-black);
 
     li {
       list-style: none;
