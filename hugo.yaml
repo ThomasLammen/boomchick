@@ -13,3 +13,7 @@ params:
   description:
   images:
     - /media/bierviltje-voorkant.png
+
+module:
+  imports:
+  - path: github.com/gohugoio/hugo-mod-jslibs/instantpage

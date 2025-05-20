@@ -27,7 +27,7 @@
 	<link href="/css/bandkiezer.css" rel="stylesheet">
 	{{ end }}
 
-	<title>{{ if not .IsHome }}{{ .Path | humanize }} | {{ end }}{{ site.Title }}</title>
+	<title>{{ if not .IsHome }}{{ (or .Title .Path) | humanize }} | {{ end }}{{ site.Title }}</title>
 </head>
 
 <body>
@@ -38,6 +38,7 @@
 	<footer>
 		{{ partial "wave.html" }}
 	</footer>
+	{{ partialCached "jslibs/instantpage/script-src.html" "-" }}
 </body>
 
 </html>
