@@ -212,6 +212,7 @@ nav.menu {
       border: none;
       width: 100%;
       display: flex;
+      padding-left: 20vw;
 
       li {
         padding: 0;

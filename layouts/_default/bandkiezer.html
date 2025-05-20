@@ -6,7 +6,8 @@
 			{{ range site.Data.bandkiezer.questions }}
 			{{ $questionId := .id }}
 			{{ $qTitle := .title }}
-			<section class="question {{ if (findRE `^q\d+[a-z]` .id ) }}hidden{{ end }}" id="{{ $questionId }}">
+			<!-- <section class="question {{ if (findRE `^q\d+[a-z]` .id ) }}hidden{{ end }}" id="{{ $questionId }}"> -->
+			<fieldset class="question" {{ if (findRE `^q\d+[a-z]` .id ) }}disabled{{ end }} id="{{ $questionId }}">
 				<div class="container">
 					<h3>{{ .title }}</h3>
 					{{ if eq .type "multiplechoice" }}
@@ -16,17 +17,17 @@
 							<label>
 								{{- .text -}}
 								<input type="radio" id="{{ $questionId }}{{ .text }}" name="{{ $qTitle }}"
-									value="{{ .text }}" {{ if .goto }} onchange="handleGoto({{ .goto }})" {{ end }}>
+									value="{{ .text }}" onchange="enableNextButton(this);{{ if .goto }}handleGoto({{ .goto }}){{ end }}">
 							</label>
 						</li>
 						{{ end }}
 					</ul>
 					{{ else if eq .type "date" }}
-					<input type="date" name="{{ $qTitle }}" value="">
+					<input type="date" name="{{ $qTitle }}" value="" onchange="enableNextButton(this);{{ if .goto }}handleGoto({{ .goto }}){{ end }}">
 					{{ else if eq .type "text" }}
-					<input type="text" name="{{ $qTitle }}" value="">
+					<input type="text" name="{{ $qTitle }}" value="" onchange="enableNextButton(this);{{ if .goto }}handleGoto({{ .goto }}){{ end }}">
 					{{ else if eq .type "longtext" }}
-					<textarea rows="" cols=""></textarea>
+					<textarea rows="" cols="" onchange="enableNextButton(this);{{ if .goto }}handleGoto({{ .goto }}){{ end }}"></textarea>
 					{{ else if eq .type "checkbox" }}
 					<ul class="answers">
 						{{ range .answers }}
@@ -34,7 +35,7 @@
 							<label>
 								{{- .text -}}
 								<input type="checkbox" id="{{ $questionId }}{{ .text }}" name="{{ $qTitle }}"
-									value="{{ .text }}">
+									value="{{ .text }}" onchange="enableNextButton(this);{{ if .goto }}handleGoto({{ .goto }}){{ end }}">
 							</label>
 						</li>
 						{{ end }}
@@ -49,7 +50,7 @@
 							</svg>
 							<div class="button-label">Previous</div>
 						</button>
-						<button type="button" onclick="nextPage({{- $questionId -}})">
+						<button type="button" onclick="nextPage({{- $questionId -}})" class="next" disabled>
 							<div class="button-label">Next</div>
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -59,13 +60,16 @@
 						</button>
 					</div>
 				</div>
-			</section>
+			</fieldset>
 			{{ end }}
-			<section class="question">
+			<fieldset class="question">
 				<input type="email" name="email" placeholder="Email Address">
-				<input type="hidden" name="_next" value='{{ (site.GetPage "/contact/").Permalink }}'>
+				<input type="hidden" name="_next" value='{{ (site.GetPage "/thanks/").Permalink }}'>
+				<input type="hidden" name="_subject" value="New submission!">
+				<input type="hidden" name="_template" value="box">
+				<input type="hidden" name="_autoresponse" value="your custom message">
 				<button type="submit">Indienen!</button>
-			</section>
+			</fieldset>
 		</form>
 	</div>
 	<script src="/js/form.js"></script>
