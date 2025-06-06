@@ -4,11 +4,13 @@ function handleGoto(value) {
   document.querySelectorAll('[id]').forEach(el => {
     if (regex.test(el.id)) {
       if (el.id === value) {
-        // el.classList.remove('hidden');
         el.disabled = false;
+        // el.required = true;
+        // el.querySelector('input').required = true;
       } else {
-        // el.classList.add('hidden');
         el.disabled = true;
+        // el.required = false;
+        // el.querySelector('input').required = false;
       }
     }
   });
@@ -63,3 +65,13 @@ function addCost(cost) {
 function setTheme(theme) {
   thanksPage('theme', (_) => theme);
 }
+
+(function init() {
+  const minDate = (new Date()).toISOString().substring(0,10);
+  const dates = document.querySelectorAll('input[type="date"]');
+  dates.forEach((d) => d.setAttribute('min', minDate));
+
+  document.querySelector('button[type="submit"]').onmouseenter = function() {
+    window.onbeforeunload = null;
+  }
+})();

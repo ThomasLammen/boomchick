@@ -9,6 +9,7 @@ fieldset {
   padding: 0;
   border: none;
 }
+
 fieldset[disabled] {
   display: none;
 }
@@ -107,8 +108,12 @@ button {
   padding: 10px 15px;
   border: none;
   display: flex;
-  align-items: end;
+  align-items: center;
   gap: 5px;
+
+  &:hover {
+		filter: brightness(1.05);
+  }
 }
 
 input[type="radio"],
@@ -116,13 +121,44 @@ input[type="checkbox"] {
   display: none;
 }
 
+input[type="text"],
+textarea,
+input[type="submit"],
+input[type="email"] {
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--color-blue);
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px var(--color-blue);
+}
+
 #progress-bar {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 0;
-	height: 5px;
-	background: #00ff00;
-	transition: width var(--scroll-speed) ease-in-out;
-	z-index: 110;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: #00ff00;
+  transition: width var(--scroll-speed) ease-in-out;
+  z-index: 110;
+}
+
+textarea {
+  max-width: 100%;
+}
+
+button[type="submit"] {
+  background-color: var(--color-orange);
+  color: var(--color-white);
 }

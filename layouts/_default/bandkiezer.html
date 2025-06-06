@@ -4,54 +4,84 @@
 
 		<form id="dynamicForm" action="https://formsubmit.co/4bf6ed9a7a7295ace593bdb70668ff5d" method="POST">
 			{{ range site.Data.bandkiezer.questions }}
-			{{ $questionId := .id }}
-			{{ $qTitle := .title }}
-			<!-- <section class="question {{ if (findRE `^q\d+[a-z]` .id ) }}hidden{{ end }}" id="{{ $questionId }}"> -->
-			<fieldset class="question" {{ if (findRE `^q\d+[a-z]` .id ) }}disabled{{ end }} id="{{ $questionId }}">
+			{{ $question := . }}
+			<!-- <section class="question {{ if (findRE `^q\d+[a-z]` .id ) }}hidden{{ end }}" id="{{ $question.id }}"> -->
+			<fieldset class="question" {{ if (findRE `^q\d+[a-z]` .id ) }}disabled{{ end }} id="{{ $question.id }}">
 				<div class="container">
 					<h3>{{ .title }}</h3>
-					{{ if eq .type "multiplechoice" }}
+					{{ if eq .type "radio" }}
 					<ul class="answers">
 						{{ range .answers }}
 						<li>
 							<label>
 								{{- .text -}}
-								<input type="radio" id="{{ $questionId }}{{ .text }}" name="{{ $qTitle }}"
-									value="{{ .text }}" onchange="enableNextButton(this);{{ if .goto }}handleGoto({{ .goto }}){{ end }}">
+								<input type="radio" id="{{ $question.id }}{{ .text }}" name="{{ $question.title }}"
+									value="{{ .text }}" onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }}">
 							</label>
 						</li>
 						{{ end }}
 					</ul>
 					{{ else if eq .type "date" }}
-					<input type="date" name="{{ $qTitle }}" value="" onchange="enableNextButton(this);{{ if .goto }}handleGoto({{ .goto }}){{ end }}">
+					<input type="date" name="{{ $question.title }}" value="" onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }}">
 					{{ else if eq .type "text" }}
-					<input type="text" name="{{ $qTitle }}" value="" onchange="enableNextButton(this);{{ if .goto }}handleGoto({{ .goto }}){{ end }}">
-					{{ else if eq .type "longtext" }}
-					<textarea rows="" cols="" onchange="enableNextButton(this);{{ if .goto }}handleGoto({{ .goto }}){{ end }}"></textarea>
+					<input
+						type="text"
+						name="{{ $question.title }}"
+						value=""
+						{{ with $question.placeholder }}placeholder="{{ . }}"{{ end }}
+						onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }}"
+					>
+					{{ else if eq .type "textarea" }}
+					<textarea
+						rows="4"
+						cols="100"
+						id="input-{{ $question.id }}"
+						onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }}"
+						{{ with $question.placeholder }}placeholder="{{ . }}"{{ end }}
+					></textarea>
 					{{ else if eq .type "checkbox" }}
 					<ul class="answers">
 						{{ range .answers }}
 						<li>
 							<label>
 								{{- .text -}}
-								<input type="checkbox" id="{{ $questionId }}{{ .text }}" name="{{ $qTitle }}"
-									value="{{ .text }}" onchange="enableNextButton(this);{{ if .goto }}handleGoto({{ .goto }}){{ end }}">
+								<input
+									type="checkbox"
+									id="{{ $question.id }}{{ .text }}"
+									name="{{ $question.title }}"
+									value="{{ .text }}"
+									onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }}"
+								>
 							</label>
 						</li>
 						{{ end }}
 					</ul>
+					{{ else if eq .type "range" }}
+					<script>const answers = JSON.parse({{ .answers | jsonify }})</script>
+					<label id="valueLabel" for="input-{{ $question.id }}">1 uur</label><br>
+					<input
+						type="range"
+						id="input-{{ $question.id }}"
+						name="{{ $question.title }}"
+						min="0"
+						value="0"
+						max="{{ math.Sub (.answers | len) 1 }}"
+						{{ with $question.placeholder }}placeholder="{{ . }}"{{ end }}
+						onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }};"
+						oninput="valueLabel.textContent = answers[this.value].text"
+					>
 					{{ end }}
 					<div class="nav-buttons">
-						<button type="button" onclick="prevPage({{- $questionId -}})">
+						<button type="button" onclick="prevPage({{- $question.id -}})">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
 								stroke-linejoin="round">
 								<path d="m18 15-6-6-6 6"></path>
 							</svg>
-							<div class="button-label">Previous</div>
+							<div class="button-label">Vorige</div>
 						</button>
-						<button type="button" onclick="nextPage({{- $questionId -}})" class="next" disabled>
-							<div class="button-label">Next</div>
+						<button type="button" onclick="nextPage({{- $question.id -}})" class="next" {{ if not .skippable }}disabled{{ end }}>
+							<div class="button-label">Volgende</div>
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
 								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
 								stroke-linejoin="round">
@@ -62,13 +92,26 @@
 				</div>
 			</fieldset>
 			{{ end }}
-			<fieldset class="question">
-				<input type="email" name="email" placeholder="Email Address">
-				<input type="hidden" name="_next" value='{{ (site.GetPage "/thanks/").Permalink }}'>
-				<input type="hidden" name="_subject" value="New submission!">
-				<input type="hidden" name="_template" value="box">
-				<input type="hidden" name="_autoresponse" value="your custom message">
-				<button type="submit">Indienen!</button>
+			<fieldset class="question" id="last">
+				<div class="container">
+					<h3>{{ site.Data.bandkiezer.email.text }}</h3>
+					<input type="email" name="email" placeholder="Email Address" autocomplete="email" required>
+					<input type="hidden" name="_next" value='{{ (site.GetPage "/thanks/").Permalink }}'>
+					<input type="hidden" name="_subject" value="New submission!">
+					<input type="hidden" name="_template" value="box">
+					<input type="hidden" name="_autoresponse" value="your custom message">
+					<div class="nav-buttons">
+						<button type="button" onclick="prevPage('last')">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+								fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+								stroke-linejoin="round">
+								<path d="m18 15-6-6-6 6"></path>
+							</svg>
+							<div class="button-label">Vorige</div>
+						</button>
+						<button type="submit">Indienen!</button>
+					</div>
+				</div>
 			</fieldset>
 		</form>
 	</div>
