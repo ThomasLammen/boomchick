@@ -1,6 +1,6 @@
 nav:
   - name: Homepagina
-    page: /
+    page: /homepage
   - name: Bandkiezer
     page: /bandkiezer
   - name: Over ons

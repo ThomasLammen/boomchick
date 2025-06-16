@@ -1,52 +1,37 @@
-{{ define "content" }}
-<main>
-	<p id="tagline">The perfect live music for every occasion.<br>Good vibes guaranteed.</p>
-	<div id="big-button">
-		<a href="/bandkiezer/">check welke muziek het beste bij jou past</a>
-	</div>
-	<section>
-	</section>
-	{{ .Content }}
+<!DOCTYPE html>
+<html lang="nl">
 
-	<div class="swiper">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide">
-				<img src="/media/black-waves.png" alt="" class="slide-img">
-			</div>
-			<div class="swiper-slide">
-				<img src="/media/blue-waves.png" alt="" class="slide-img">
-			</div>
-			<div class="swiper-slide">
-				<img src="/media/dark-road.jpg" alt="" class="slide-img">
-			</div>
-			<div class="swiper-slide">
-				<img src="/media/black-waves.png" alt="" class="slide-img">
-			</div>
-			<div class="swiper-slide">
-				<img src="/media/blue-waves.png" alt="" class="slide-img">
-			</div>
-			<div class="swiper-slide">
-				<img src="/media/dark-road.jpg" alt="" class="slide-img">
-			</div>
-		</div>
-	</div>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="{{ site.Params.description }} ">
+	<meta name="author" content="{{ site.Title }}">
+	<meta name="robots" content="index, follow">
 
+	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<meta name="apple-mobile-web-app-title" content="Boomchick" />
+	<link rel="manifest" href="/site.webmanifest" />
 
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-	<script>
-		new Swiper('.swiper', {
-			loop: true,
-			slidesPerView: 'auto',
-			spaceBetween: 20,
-			loop: true,
-			speed: 7000,
-			autoplay: {
-				delay: 0,
-				disableOnInteraction: false
-			},
-			freeMode: true,
-			freeModeMomentum: false
-		})
-	</script>
-</main>
-{{ end }}
+	{{ template "_internal/opengraph.html" . }}
+
+	{{ template "_internal/twitter_cards.html" . }}
+
+	{{ template "_internal/schema.html" . }}
+
+	<link href="css/hamburger.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+	<title>{{ if not .IsHome }}{{ .Path | humanize }} | {{ end }}{{ site.Title }}</title>
+</head>
+
+<body style="background-color: var(--color-beige); height: 100vh; width: 100vw;">
+	<center style="padding-top: 2em;">
+		<img src="/media/logo-cropped.svg" alt="" style="height: 50vh; max-width: 90vw;">
+		<p style="font-size: 3em; color: var(--color-black);">Coming soon!</p>
+	</center>
+</body>
+
+</html>
