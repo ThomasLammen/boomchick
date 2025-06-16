@@ -72,6 +72,7 @@ main {
 header h1 {
   font-size: 4rem;
   font-family: Genty;
+  text-align: center;
   letter-spacing: 2px;
   text-shadow:
     -0.1rem -0.1rem 0 var(--color-beige),
@@ -250,3 +251,29 @@ section {
 .right {
   width: 20vw;
 }
+
+
+@media (max-width:1000px) {
+  #header-title h1 {
+    font-size: 3em;
+  }
+}
+
+.swiper {
+	width: 100%;
+	height: 400px;
+  z-index: 0;
+}
+
+.swiper-slide {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.slide-img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
