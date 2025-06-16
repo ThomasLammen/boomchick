@@ -1,24 +1,38 @@
 questions:
   - id: q1
     title: Heb je al een concrete datum?
-    type: multiplechoice
+    type: radio
     answers:
       - text: Ja
         goto: q1a
       - text: Nee
         goto: q1b
   - id: q1a
-    title:
+    title: Vertel!
     type: date
   - id: q1b
     title: Wanneer zat je ongeveer te denken?
-    type: text
+    type: radio
+    answers:
+      - text: Lente
+        cost: 1000
+        theme: Italian Romantic
+      - text: Zomer
+        cost: 1200
+        theme: Latin Vibes
+      - text: Herfst
+        cost: 5
+        theme: Lofi Grooves
+      - text: Winter
+        cost: 10
+        theme: Old Skool
   - id: q2
     title: Waarom wil je muziek?
-    type: multiplechoice
+    type: radio
     answers:
       - text: Bruiloft
         cost: 1000
+        theme: Italian Romantic
       - text: Receptie
         goto: q2a
       - text: Festival
@@ -35,7 +49,7 @@ questions:
   - id: q3
     title: Wat is de setting?
     subtitle: Wil je meerdere dagdelen muziek? Kies nu 1 van de opties, we komen hier straks bij je op terug!
-    type: multiplechoice
+    type: radio
     answers:
       - text: Borrel
       - text: Diner
@@ -44,7 +58,7 @@ questions:
         cost: -1
   - id: q4
     title: Hoeveel mensen verwacht je op je (X setting)?
-    type: multiplechoice
+    type: radio
     answers:
       - text: 0-25
         cost: -1
@@ -60,26 +74,37 @@ questions:
         cost: -1
   - id: q5
     title: Hoelang is het optreden?
-    type: timerange
+    type: range
+    answers:
+      - text: 1 uur
+      - text: 2 uur
+      - text: 3 uur
+      - text: 10 uur
+      - text: De hele dag
   - id: q6
     title: Is er een thema?
-    type: multiplechoice
+    type: radio
     answers:
       - text: Ja
         goto: q6a
       - text: Nee
   - id: q6a
     title: Kies een van de volgende thema's
-    type: multiplechoice
+    type: radio
     answers:
       - text: Italian dinner
+        theme: Italian Romantic
       - text: French Café Sounds
+        theme: French Café
       - text: Bossa Latin Grooves
+        theme: Latin Vibes
       - text: 50s Classic - Vintage Vibes
+        theme: Old Skool
       - text: Kerst - Christmas Bangers
+        theme: Christmas Classics
   - id: q7
     title: Is het binnen of buiten?
-    type: multiplechoice
+    type: radio
     answers:
       - text: Binnen
       - text: Buiten
@@ -89,7 +114,7 @@ questions:
   - id: q9
     title: Wil je graag verzoeknummers horen?
     subtitle: De eerste is gratis!
-    type: multiplechoice
+    type: radio
     answers:
       - text: Ja, 1
       - text: Ja, 2
@@ -129,11 +154,14 @@ questions:
   - id: q11
     title: Wil je nog een optreden boeken op dezelfde dag?
     subtitle: Bijvoorbeeld in het geval van een diner 's middags, en een feestje 's avonds.
-    type: multiplechoice
+    type: radio
     answers:
       - text: Ja
         goto: q1
       - text: Nee
   - id: q12
     title: Wil je nog iets anders bijzonders melden?
-    type: longtext
+    type: textarea
+    skippable: true
+email:
+  text: Laat je email achter joh

@@ -1,4 +1,5 @@
 function handleGoto(value) {
+  if (!value) return;
   const parent = value.slice(0, -1);
   const regex = new RegExp(`^${parent}[a-z]$`);
   document.querySelectorAll('[id]').forEach(el => {
@@ -58,12 +59,30 @@ function thanksPage(name, change_func) {
   el.value = url.toString();
 }
 
-function addCost(cost) {
-  thanksPage('cost', (x) => Number(x) + cost);
+function calcCost() {
+  let total = [...document.querySelectorAll('input:checked')]
+    .map(el => Number(el.dataset.cost || 0))
+    .reduce((sum, val) => sum + val, 0)
+
+  thanksPage('cost', (_) => total);
 }
 
-function setTheme(theme) {
-  thanksPage('theme', (_) => theme);
+function setTheme() {
+  let lastTheme = [...document.querySelectorAll('input:checked')]
+    .map(el => el.dataset.theme)
+    .filter(v => v !== undefined && v !== '')
+    .at(-1);
+
+  thanksPage('theme', (_) => lastTheme);
+}
+
+function onChange(el, goto) {
+  enableNextButton(el);
+  handleGoto(goto);
+  setTheme();
+  calcCost();
+  const t = document.querySelector('input[name="_next"]')
+  console.log(t);
 }
 
 (function init() {

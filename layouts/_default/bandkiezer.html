@@ -15,28 +15,48 @@
 						<li>
 							<label>
 								{{- .text -}}
-								<input type="radio" id="{{ $question.id }}{{ .text }}" name="{{ $question.title }}"
-									value="{{ .text }}" onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }}">
+								<input
+									type="radio"
+									id="{{ $question.id }}{{ .text }}"
+									name="{{ $question.title }}"
+									value="{{ .text }}"
+									data-cost = "{{- or .cost 0 -}}"
+									data-theme= "{{- or .theme -}}"
+									onchange="onChange(this, {{ .goto }})"
+								>
 							</label>
 						</li>
 						{{ end }}
 					</ul>
 					{{ else if eq .type "date" }}
-					<input type="date" name="{{ $question.title }}" value="" onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }}">
+					<input
+						type="date"
+						id="{{ $question.id }}"
+						name="{{ $question.title }}"
+						data-cost = "{{- .cost -}}"
+						data-theme= "{{- or .theme -}}"
+						{{ with .placeholder }}value="{{ . }}"{{ end }}
+						onchange="onChange(this, {{ .goto }})"
+					>
 					{{ else if eq .type "text" }}
 					<input
 						type="text"
+						id="{{ $question.id }}"
 						name="{{ $question.title }}"
-						value=""
+						{{ with .placeholder }}value="{{ . }}"{{ end }}
 						{{ with $question.placeholder }}placeholder="{{ . }}"{{ end }}
-						onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }}"
+						data-cost = "{{- .cost -}}"
+						data-theme= "{{- or .theme -}}"
+						onchange="onChange(this, {{ .goto }})"
 					>
 					{{ else if eq .type "textarea" }}
 					<textarea
 						rows="4"
 						cols="100"
 						id="input-{{ $question.id }}"
-						onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }}"
+						onchange="onChange(this, {{ .goto }})"
+						data-cost = "{{- .cost -}}"
+						data-theme= "{{- or .theme -}}"
 						{{ with $question.placeholder }}placeholder="{{ . }}"{{ end }}
 					></textarea>
 					{{ else if eq .type "checkbox" }}
@@ -50,7 +70,9 @@
 									id="{{ $question.id }}{{ .text }}"
 									name="{{ $question.title }}"
 									value="{{ .text }}"
-									onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }}"
+									data-cost = "{{- .cost -}}"
+									data-theme= "{{- or .theme -}}"
+									onchange="onChange(this, {{ .goto }})"
 								>
 							</label>
 						</li>
@@ -67,7 +89,9 @@
 						value="0"
 						max="{{ math.Sub (.answers | len) 1 }}"
 						{{ with $question.placeholder }}placeholder="{{ . }}"{{ end }}
-						onchange="enableNextButton(this);{{ with .goto }}handleGoto({{ . }}){{ end }};"
+						data-cost = "{{- .cost -}}"
+						data-theme= "{{- or .theme -}}"
+						onchange="onChange(this, {{ .goto }})"
 						oninput="valueLabel.textContent = answers[this.value].text"
 					>
 					{{ end }}
