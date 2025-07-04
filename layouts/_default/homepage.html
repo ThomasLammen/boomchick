@@ -8,72 +8,15 @@
 	</section>
 	{{ .Content }}
 
-	<div class="swiper image-strip">
-		<div class="swiper-wrapper">
-			<div class="swiper-slide">
-				<img src="/media/black-waves.png" alt="" class="slide-img">
-			</div>
-			<div class="swiper-slide">
-				<img src="/media/blue-waves.png" alt="" class="slide-img">
-			</div>
-			<div class="swiper-slide">
-				<img src="/media/dark-road.jpg" alt="" class="slide-img">
-			</div>
-			<div class="swiper-slide">
-				<img src="/media/black-waves.png" alt="" class="slide-img">
-			</div>
-			<div class="swiper-slide">
-				<img src="/media/blue-waves.png" alt="" class="slide-img">
-			</div>
-			<div class="swiper-slide">
-				<img src="/media/dark-road.jpg" alt="" class="slide-img">
-			</div>
+
+	<div class="scroller-container">
+		<div class="scroller-track">
+		{{ range 3 }}
+		{{ range readDir "content/media/carrousel" }}
+		<img src="/media/carrousel/{{ .Name }}" alt="">
+		{{ end }}
+		{{ end }}
 		</div>
 	</div>
-
-	<style>
-		.swiper.image-strip {
-			width: 100%;
-			height: auto;
-		}
-
-		.swiper-wrapper {
-			display: flex;
-		}
-
-		.swiper-slide {
-			width: auto;
-			margin: 0;
-			flex-shrink: 0;
-		}
-
-		.swiper-slide img {
-			height: 400px;
-			width: auto;
-			object-fit: contain;
-			display: block;
-			image-rendering: auto;
-			backface-visibility: hidden;
-			transform: translateZ(0);
-		}
-	</style>
-
-
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-	<script>
-		new Swiper('.swiper.image-strip', {
-			slidesPerView: 'auto',
-			spaceBetween: 0,
-			speed: 9000,
-			autoplay: {
-				delay: 0,
-				disableOnInteraction: false
-			},
-			freeMode: true,
-			freeModeMomentum: false,
-			loop: true,
-			loopedSlides: 40
-		})
-	</script>
 </main>
 {{ end }}
