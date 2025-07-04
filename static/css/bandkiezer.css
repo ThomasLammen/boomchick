@@ -68,7 +68,8 @@ h3 {
 }
 
 .answers>li {
-  min-height: 10vh;
+  max-height: 10vh;
+  min-height: 8vh;
   font-size: 1rem;
 
   &:has(label > input:checked) {
