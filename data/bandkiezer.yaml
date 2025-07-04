@@ -110,7 +110,7 @@ questions:
       - text: Buiten
   - id: q8
     title: Waar is het?
-    type: unknown
+    type: text
   - id: q9
     title: Wil je graag verzoeknummers horen?
     subtitle: De eerste is gratis!

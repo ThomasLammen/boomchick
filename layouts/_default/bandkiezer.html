@@ -48,7 +48,7 @@
 						{{ with $question.placeholder }}placeholder="{{ . }}"{{ end }}
 						data-cost = "{{- .cost -}}"
 						data-theme= "{{- or .theme -}}"
-						onchange="onChange(this, {{ .goto }})"
+						oninput="onChange(this, {{ .goto }})"
 					>
 					{{ else if eq .type "textarea" }}
 					<textarea
