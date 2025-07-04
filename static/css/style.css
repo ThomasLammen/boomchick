@@ -240,6 +240,12 @@ section {
   box-sizing: border-box;
 }
 
+@media (min-width: 1000px) {
+  section {
+    padding-left: 15rem;
+  }
+}
+
 .left {
   width: 20vw;
 }
