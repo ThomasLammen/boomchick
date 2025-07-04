@@ -5,5 +5,4 @@
 		<li {{ if (eq $currentPageURL .page) -}}class="current" {{- end }}><a href="{{ .page }}">{{ .name }}</a></li>
 		{{- end }}
 	</ol>
-	{{ partial "wave.html" }}
 </nav>
