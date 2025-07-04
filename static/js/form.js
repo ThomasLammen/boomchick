@@ -18,14 +18,14 @@ function handleGoto(value) {
 }
 
 function enableNextButton(input) {
-  const fieldset = input.closest('fieldset')
-  const button = fieldset.querySelector('.next')
+  const fieldset = input.closest('fieldset');
+  const button = fieldset.querySelector('.next');
   if (button) {
-    button.disabled = input.value.trim() === ''
+    button.disabled = input.value.trim() === '';
   }
   window.onbeforeunload = function() {
       return true;
-  };
+  }
 }
 
 function scrollQuestionPage(current, direction) {
@@ -82,7 +82,6 @@ function onChange(el, goto) {
   setTheme();
   calcCost();
   const t = document.querySelector('input[name="_next"]')
-  console.log(t);
 }
 
 (function init() {
@@ -93,4 +92,6 @@ function onChange(el, goto) {
   document.querySelector('button[type="submit"]').onmouseenter = function() {
     window.onbeforeunload = null;
   }
+
+  document.querySelector('fieldset .prev').disabled = true;
 })();

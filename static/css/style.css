@@ -47,7 +47,6 @@ header {
 .header-content {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
   margin: 0 10px;
   z-index: 100;
   position: absolute;
