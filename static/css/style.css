@@ -96,11 +96,12 @@ header p {
 footer {
   position: fixed;
   bottom: 0;
-
-  & .wave-wrapper {
-    transform: rotateY(180deg);
-  }
 }
+
+footer .wave-wrapper {
+    transform: rotateY(180deg);
+}
+
 
 #waves {
   display: block;
