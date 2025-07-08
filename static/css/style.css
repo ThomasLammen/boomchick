@@ -254,7 +254,7 @@ section {
 }
 
 
-@media (max-width:1000px) {
+@media (min-width: 480px) and (max-width:1000px) {
   #header-title h1 {
     font-size: 3em;
   }
