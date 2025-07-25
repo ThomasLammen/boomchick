@@ -234,6 +234,20 @@ nav li a {
 }
 
 
+h1.theme {
+	color: var(--color-white);
+	text-shadow:
+		-1px -1px 0 var(--color-orange),
+		1px -1px 0 var(--color-orange),
+		-1px 1px 0 var(--color-orange),
+		1px 1px 0 var(--color-orange);
+	font-size: 7em;
+	font-family: Genty;
+	margin: 0;
+	letter-spacing: 5px;
+	font-stretch: 200;
+}
+
 section {
 	padding: 1rem;
 	box-sizing: border-box;
@@ -289,4 +303,13 @@ section {
 	to {
 		transform: translateX(-50%);
 	}
+}
+
+em {
+	color: var(--color-orange);
+	font-style: normal;
+}
+
+main ul {
+	line-height: 2;
 }

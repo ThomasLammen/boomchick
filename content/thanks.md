@@ -10,3 +10,9 @@ params:
       spotify: |
         <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1tJmVBavhzhCvTAYHKZ6Rn?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 ---
+
+## Gefeliciteerd! De perfecte live muziek voor jouw evenement is:
+
+- Professionele, ervaren live musici
+- Fijne sfeer en coole vibes
+- Perfecte bezetting voor jouw evenement
