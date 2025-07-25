@@ -81,7 +81,11 @@ function onChange(el, goto) {
   handleGoto(goto);
   setTheme();
   calcCost();
-  const t = document.querySelector('input[name="_next"]')
+	if (el.type === 'radio') {
+		const fieldset = el.closest('fieldset');
+		console.log(fieldset);
+		nextPage(fieldset.id);
+	}
 }
 
 (function init() {
