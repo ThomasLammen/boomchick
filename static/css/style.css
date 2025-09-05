@@ -274,6 +274,9 @@ section {
 	section {
 		padding-left: 15rem;
 	}
+	section > p {
+		max-width: 50vw;
+	}
 }
 
 .left {
