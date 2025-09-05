@@ -1,7 +1,14 @@
 ---
 title: Contact
+layout: contact
 ---
 
-# Wij zijn Boomchick Collective.
+# Contact
 
-En wij komen je feestje verzorgen.
+Prangende aanvullende vragen?
+
+Ging er wat mis met het invullen?
+
+Verzoekjes?
+
+Hoe dan ook, schroom niet contact op te nemen!

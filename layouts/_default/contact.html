@@ -1,0 +1,26 @@
+{{ define "content" }}
+<main style="padding-left: 13vw;">
+	<section>
+		{{ .Content }}
+	</section>
+
+	<section>
+		
+	<form action="#" method="post">
+		<label for="name">Naam</label><br>
+		<input type="text" id="name" name="name" required><br><br>
+
+		<label for="email">Email</label><br>
+		<input type="email" id="email" name="email" required><br><br>
+
+		<label for="phone">Telefoonnummer</label><br>
+		<input type="tel" id="phone" name="phone"><br><br>
+
+		<label for="message">Bericht</label><br>
+		<textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
+
+		<button type="submit">Verstuur</button>
+	</form>
+	</section>
+</main>
+{{ end }}
