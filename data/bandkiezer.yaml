@@ -123,36 +123,36 @@ questions:
       - text: Ja, 3
         cost: 25
       - text: Nee
+  # - id: q10
+  #   title: Wil je er een extra instrument bijboeken?
+  #   type: checkbox
+  #   answers:
+  #     - text: Zang
+  #       cost: 250
+  #     - text: Drums
+  #       cost: 250
+  #     - text: Saxofoon
+  #       cost: 250
+  #     - text: Trompet
+  #       cost: 250
+  #     - text: Trombone
+  #       cost: 250
+  #     - text: Piano
+  #       cost: 250
+  #     - text: Gitaar
+  #       cost: 250
+  #     - text: Klarinet
+  #       cost: 250
+  #     - text: Fluit
+  #       cost: 250
+  #     - text: Accordeon
+  #       cost: 250
+  #     - text: Viool
+  #       cost: 250
+  #     - text: 'Anders:'
+  #       cost: 250
+  #       type: other
   - id: q10
-    title: Wil je er een extra instrument bijboeken?
-    type: checkbox
-    answers:
-      - text: Zang
-        cost: 250
-      - text: Drums
-        cost: 250
-      - text: Saxofoon
-        cost: 250
-      - text: Trompet
-        cost: 250
-      - text: Trombone
-        cost: 250
-      - text: Piano
-        cost: 250
-      - text: Gitaar
-        cost: 250
-      - text: Klarinet
-        cost: 250
-      - text: Fluit
-        cost: 250
-      - text: Accordeon
-        cost: 250
-      - text: Viool
-        cost: 250
-      - text: 'Anders:'
-        cost: 250
-        type: other
-  - id: q11
     title: Wil je nog een optreden boeken op dezelfde dag?
     subtitle: Bijvoorbeeld in het geval van een diner 's middags, en een feestje 's avonds.
     type: radio
@@ -160,7 +160,7 @@ questions:
       - text: Ja
         goto: q1
       - text: Nee
-  - id: q12
+  - id: q11
     title: Wil je nog iets anders bijzonders melden?
     type: textarea
     skippable: true
