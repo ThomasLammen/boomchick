@@ -97,5 +97,15 @@ function onChange(el, goto) {
     window.onbeforeunload = null;
   }
 
+  document.getElementById('dynamicForm').addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      let focus = document.activeElement
+      let nextButtons = Array.from(document.querySelectorAll(".next"))
+      let next = nextButtons.find(btn => btn.compareDocumentPosition(focus) & Node.DOCUMENT_POSITION_PRECEDING)
+      if (next) next.click()
+    }
+  })
+
   document.querySelector('fieldset .prev').disabled = true;
 })();

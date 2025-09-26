@@ -81,7 +81,7 @@
 					</ul>
 					{{ else if eq .type "range" }}
 					<script>const answers = JSON.parse({{ .answers | jsonify }})</script>
-					<label id="valueLabel" for="input-{{ $question.id }}">1 uur</label><br>
+					<label id="valueLabel" for="input-{{ $question.id }}"></label><br>
 					<input
 						type="range"
 						id="input-{{ $question.id }}"

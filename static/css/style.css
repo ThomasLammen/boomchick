@@ -68,6 +68,7 @@ main {
 	max-width: 90vw;
 	margin: 0 auto;
 	margin-top: 6em;
+	margin-bottom: 10em;
 }
 
 header h1 {
@@ -152,8 +153,15 @@ footer .wave-wrapper {
 }
 
 #tagline {
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	width: fit-content;
+	font-size: min(2.5vw, 24px);
+	background-color: var(--color-white);
+}
+
+#tagline.withnav {
+	color: var(--color-white);
+	background-color: var(--color-black);
 }
 
 @media (max-width:480px) {

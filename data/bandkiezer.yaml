@@ -73,9 +73,10 @@ questions:
       - text: Heel erg veel!
         cost: -1
   - id: q5
-    title: Hoelang is het optreden?
+    title: Hoelang wil je live muziek?
     type: range
     answers:
+      - text: Halfuur
       - text: 1 uur
       - text: 2 uur
       - text: 3 uur
