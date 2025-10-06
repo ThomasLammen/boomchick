@@ -1,12 +1,10 @@
 document.querySelector('.hamburger').addEventListener('click', function() {
-	this.classList.toggle('cross')
-	document.querySelector('nav.menu').classList.toggle('active')
+	const nav = document.querySelector('nav.menu');
+	nav.classList.toggle('active');
 	const img = document.querySelector('img');
 	img.style.transform = this.classList.contains('cross') ? 'rotate(720deg)' : '';
 
-	const tagline = document.querySelector('#tagline');
-	const timeout = tagline.classList.contains('withnav') ? 400 : 100;
 	setTimeout(() => {
-		tagline.classList.toggle('withnav');
-	}, timeout);
+		this.classList.toggle('cross');
+	}, (nav.classList.contains('active')) ? 0 : 250);
 })

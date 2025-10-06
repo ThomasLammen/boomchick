@@ -30,8 +30,8 @@ html {
 }
 
 header {
-	position: sticky;
-	z-index: 11;
+	position: absolute;
+	z-index: 1;
 	top: 0;
 	color: var(--color-black);
 	height: 10em;
@@ -55,6 +55,11 @@ header a {
 	top: 35px;
 	width: 95vw;
 	height: 0;
+}
+
+.hamburger-placeholder {
+	width: 70px;
+	height: 70px;
 }
 
 .logo {
@@ -186,15 +191,14 @@ nav {
 	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 10;
-
+	z-index: 20;
 	background-color: var(--color-black);
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	color: var(--color-white);
 	max-height: 0;
-	transition: max-height .9s ease, padding .9s ease;
+	transition: max-height .7s ease, padding .7s ease;
 	overflow: hidden;
 
 }
@@ -204,7 +208,7 @@ nav.active {
 }
 
 nav ol {
-	padding-top: 12em;
+	padding-top: 4em;
 	padding-bottom: 1em;
 	padding-left: 0;
 }
