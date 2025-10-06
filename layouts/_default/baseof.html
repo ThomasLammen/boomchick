@@ -33,12 +33,14 @@
 <body>
 	{{ partial "header.html" }}
 	{{ partial "nav.html" }}
-	{{- block "content" . }}{{- end }}
-	<script src="/js/hamburger.js"></script>
-	<footer>
-		{{ partial "wave.html" }}
-	</footer>
-	{{ partialCached "jslibs/instantpage/script-src.html" "-" }}
+	<div id="page">
+			{{- block "content" . }}{{- end }}
+			<script src="/js/hamburger.js"></script>
+			<footer>
+				{{ partial "wave.html" }}
+			</footer>
+			{{ partialCached "jslibs/instantpage/script-src.html" "-" }}
+	</div>
 </body>
 
 </html>
