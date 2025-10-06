@@ -387,3 +387,12 @@ button {
   }
 }
 
+
+#progress-bar {
+	position: absolute;
+	bottom: 0;
+	height: 1vh;
+	max-height: 10px;
+	background-color: var(--color-orange);
+	z-index: 20;
+}
