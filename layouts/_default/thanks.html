@@ -1,14 +1,21 @@
 {{ define "content" }}
-<main>
-	<section>
-	{{ .Content }}
-	<div class="big-button" style="font-size: 1em; margin: 0;">
-		<a href="/bandkiezer/">Vraag nog een optreden aan</a>
-	</div>
-	</section>
-	<script>
-		window.themes = {{- site.Data.themes | jsonify | safeJS -}};
-	</script>
-	<script src="/js/thanks.js"></script>
-</main>
+
+<div class="thanksbox">
+	<div class="fake-left"></div>
+	<main>
+		<section>
+			{{ .Content }}
+			<div class="big-button" style="font-size: 1em; margin: 0;">
+				<a href="/bandkiezer/">Vraag nog een optreden aan</a>
+			</div>
+		</section>
+		<script>
+			window.themes = {{- site.Data.themes | jsonify | safeJS -}};
+		</script>
+	</main>
+	<aside>
+
+	</aside>
+</div>
+<script src="/js/thanks.js"></script>
 {{ end }}

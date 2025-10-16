@@ -273,7 +273,7 @@ section {
 }
 
 @media (min-width: 1000px) {
-	section {
+	main {
 		padding-left: 15rem;
 	}
 
@@ -390,7 +390,7 @@ button {
 }
 
 #page {
-	min-height: 100%;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 }
@@ -401,4 +401,48 @@ button {
 
 footer {
 	padding-top: 1rem;
+}
+.thanksbox {
+	margin-top: 5em;
+	height: 100%;
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 2rem;
+}
+
+.thanksbox .fake-left {
+	flex: 0 0 100px;
+}
+
+.thanksbox main {
+	flex: 0 1 60ch;
+	margin-top: 6em;
+	max-width: 90vw;
+}
+
+.thanksbox aside {
+	flex: 0 0 300px;
+	margin-top: 9em;
+	margin-right: 8vw;
+}
+
+.thanksbox aside * {
+	max-width: 100%;
+}
+
+@media (max-width: 768px) {
+	.thanksbox {
+		flex-direction: column;
+		align-items: center;
+	}
+	.thanksbox .fake-left {
+		display: none;
+	}
+	.thanksbox aside {
+		width: 90vw;
+		margin-top: 2rem;
+		margin-right: 0;
+	}
 }
