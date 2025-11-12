@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="{{ site.Params.description }} ">
-	<meta name="author" content="{{ site.Title }}">
+	<meta name="author" content="Boomchick Colllective">
 	<meta name="robots" content="noindex,nofollow">
 
 	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -44,15 +44,15 @@
 			{{ if not (eq .Layout "bandkiezer") }}
 			<div id="footerinfo">
 				<div>
-					<em>{{ site.Data.footer.left.title }}</em>
+					<em>{{ site.Data.footer.left.title | markdownify }}</em>
 					<ul>
 					{{ range site.Data.footer.left.lines }}
-						<li>{{ . }}</li>
+						<li>{{ . | markdownify }}</li>
 					{{ end }}
 					</ul>
 				</div>
 				<div>
-					<em>{{ site.Data.footer.middle.title }}</em>
+					<em>{{ site.Data.footer.middle.title | markdownify }}</em>
 					<ul>
 						{{ range site.Data.nav.nav }}
 						<li><a href="{{ .page }}">{{ .name }}</a></li>

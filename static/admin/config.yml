@@ -12,7 +12,7 @@ collections:
       preview: false
     label_singular: Pagina
     files:
-      - label: "Home Pagina"
+      - label: "Homepage"
         name: "home"
         file: "content/homepage.md" # TODO: index.md after release
         media_folder: "static/media/carrousel"
@@ -21,21 +21,21 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Slogan", name: "slogan", widget: "markdown" }
 
-      - label: "Over Ons Pagina"
+      - label: "Over Ons"
         name: "over-ons"
         file: "content/over-ons.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
 
-      - label: "Contact Pagina"
+      - label: "Contact"
         name: "contact"
         file: "content/contact.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
 
-      - label: "Bedankt Pagina"
+      - label: "Bedankt"
         name: "thanks"
         file: "content/thanks.md"
         fields:
@@ -77,39 +77,18 @@ collections:
         name: "footer"
         file: "data/footer.yml"
         fields:
-          - label: "Left Section"
+          - label: "Linker blok"
             name: "left"
             widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - label: "Lines"
+              - { label: "Koptekst", name: "title", widget: "string" }
+              - label: "Regels"
                 name: "lines"
                 widget: "list"
-                field: { label: "Line", name: "line", widget: "string" }
+                field: { label: "Regeltekst", name: "line", widget: "string" }
 
-          - label: "Middle Section"
+          - label: "Middelste blok"
             name: "middle"
             widget: "object"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-
-
-      # - label: "Footer"
-      #   name: "footer"
-      #   file: "data/footer.yml"
-      #   fields:
-      #     - label: "Links"
-      #       name: "left"
-      #       widget: "object"
-      #       fields:
-      #         - { label: "Koptekst", name: "title", widget: "string" }
-      #         - label: "Regels"
-      #           name: "lines"
-      #           widget: "list"
-      #     - label: "Midden"
-      #       name: "middle"
-      #       widget: "object"
-      #       fields:
-      #         - label: "Koptekst"
-      #           name: title
-      #           widget: string
+              - { label: "Koptekst", name: "title", widget: "string" }

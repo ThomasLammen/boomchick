@@ -1,6 +1,6 @@
 {{ define "content" }}
 <main>
-	<p id="tagline">{{ .Description }}</p>
+	<p id="tagline">{{ replaceRE "\n\n" "<br>" .Description | safeHTML }}</p>
 	<div class="big-button">
 		<a href="/bandkiezer/">check welke muziek het beste bij jou past</a>
 	</div>
