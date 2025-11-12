@@ -5,15 +5,22 @@ params:
   themes:
   - name: Italian Romantic
     spotify: 2NFGlBRAztXc2FoNgEHElz
-    video: gilles.mp4
+    video: thanks-gilles.mp4
   - name: French Café
     spotify: 3qAKgzooHW3YiTuoOLRnXm
+    video: thanks-frank.mp4
   - name: Latin Vibes
     spotify: 3f1cV9clxHrcOUKhAXt8kq
+    video: thanks-wim.mp4
   - name: Old Skool
     spotify: 5ijm8cjNwUUCILK2tIGwdv
+    video: thanks-ole.mp4
   - name: Christmas Classics
     spotify: 0MlFlLiohQotsA5IiTw3Wu
+    video: thanks-midas.mp4
+  - name: Lo-Fi Grooves
+    spotify: 7KEbr6KQWg3A4QcGelmCoh
+    video: thanks-thomas.mp4
 ---
 
 ## Gefeliciteerd! De perfecte live muziek voor jouw evenement is:

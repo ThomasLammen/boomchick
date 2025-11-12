@@ -39,7 +39,7 @@
 		{{- block "content" . }}{{- end }}
 		<br>
 		<script src="/js/hamburger.js"></script>
-		{{ partial "footer.html" }}
+		{{ partial "footer.html" . }}
 		{{ partialCached "jslibs/instantpage/script-src.html" "-" }}
 	</div>
 </body>
