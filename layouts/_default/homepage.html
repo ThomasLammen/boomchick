@@ -11,9 +11,10 @@
 
 	<div class="scroller-container">
 		<div class="scroller-track">
+			{{ $params := .Params }}
 			{{ range 3 }}
-			{{ range readDir "static/media/carrousel" }}
-			<img src="/media/carrousel/{{ .Name }}" alt="">
+			{{ range $params.carrousel }}
+			<img src="/media/{{ . }}" alt="">
 			{{ end }}
 			{{ end }}
 		</div>
