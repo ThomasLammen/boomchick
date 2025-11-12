@@ -72,13 +72,44 @@ collections:
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Page", name: "page", widget: "string" }
+
       - label: "Footer"
         name: "footer"
         file: "data/footer.yml"
         fields:
-          - label: "Footer"
-            name: "footer"
-            widget: "list"
+          - label: "Left Section"
+            name: "left"
+            widget: "object"
             fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Page", name: "page", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Lines"
+                name: "lines"
+                widget: "list"
+                field: { label: "Line", name: "line", widget: "string" }
+
+          - label: "Middle Section"
+            name: "middle"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+
+
+      # - label: "Footer"
+      #   name: "footer"
+      #   file: "data/footer.yml"
+      #   fields:
+      #     - label: "Links"
+      #       name: "left"
+      #       widget: "object"
+      #       fields:
+      #         - { label: "Koptekst", name: "title", widget: "string" }
+      #         - label: "Regels"
+      #           name: "lines"
+      #           widget: "list"
+      #     - label: "Midden"
+      #       name: "middle"
+      #       widget: "object"
+      #       fields:
+      #         - label: "Koptekst"
+      #           name: title
+      #           widget: string
