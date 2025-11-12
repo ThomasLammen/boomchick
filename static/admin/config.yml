@@ -18,44 +18,40 @@ collections:
         media_folder: "static/media/carrousel"
         public_folder: "/media/carrousel"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Titel", name: "title", widget: "string" }
           - { label: "Slogan", name: "slogan", widget: "markdown" }
 
       - label: "Over Ons"
         name: "over-ons"
         file: "content/over-ons.md"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Tekst", name: "body", widget: "markdown" }
 
       - label: "Contact"
         name: "contact"
         file: "content/contact.md"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Tekst", name: "body", widget: "markdown" }
 
       - label: "Bedankt"
         name: "thanks"
         file: "content/thanks.md"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - label: "Params"
+          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Tekst", name: "body", widget: "markdown" }
+          - label: "Parameters"
             name: "params"
             widget: "object"
             fields:
-              - label: "Themes"
+              - label: "Thema's"
                 name: "themes"
                 widget: "list"
-                field:
-                  label: "Theme"
-                  name: "theme"
-                  widget: "object"
-                  fields:
-                    - { label: "Themanaam", name: "name", widget: "string" }
-                    - { label: "Spotify ID", name: "spotify", widget: "string" }
-                    - { label: "Video", name: "video", widget: "image" }
+                fields:
+                  - { label: "Themanaam", name: "name", widget: "string" }
+                  - { label: "Spotify ID", name: "spotify", widget: "string" }
+                  - { label: "Video", name: "video", widget: "image", required: false }
 
   - name: overig
     label: Overig
@@ -70,8 +66,8 @@ collections:
             name: "nav"
             widget: "list"
             fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Page", name: "page", widget: "string" }
+              - { label: "Naam", name: "name", widget: "string" }
+              - { label: "Pagin URL (bijv. /over-ons/)", name: "page", widget: "string" }
 
       - label: "Footer"
         name: "footer"

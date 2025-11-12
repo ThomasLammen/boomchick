@@ -1,0 +1,28 @@
+<footer>
+	{{ partial "wave.html" }}
+	{{ if not (eq .Layout "bandkiezer") }}
+	<div id="footerinfo">
+		<div>
+			<em>{{ site.Data.footer.left.title | markdownify }}</em>
+			<ul>
+				{{ range site.Data.footer.left.lines }}
+				<li>{{ . | markdownify }}</li>
+				{{ end }}
+			</ul>
+		</div>
+		<div>
+			<em>{{ site.Data.footer.middle.title | markdownify }}</em>
+			<ul>
+				{{ range site.Data.nav.nav }}
+				<li><a href="{{ .page }}">{{ .name }}</a></li>
+				{{- end }}
+			</ul>
+		</div>
+		<div class="trustpilot-widget" data-locale="nl-NL" data-template-id="56278e9abfbbba0bdcd568bc"
+			data-businessunit-id="68b838206ad677c356e89226" data-style-height="52px" data-style-width="100%"
+			data-token="49a17996-0320-4f12-a0ad-13e86fa1be18"> <a
+				href="https://nl.trustpilot.com/review/www.boomchickcollective.nl" target="_blank"
+				rel="noopener">Trustpilot</a> </div>
+	</div>
+	{{ end }}
+</footer>

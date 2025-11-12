@@ -416,10 +416,20 @@ footer {
 	justify-content: space-between;
 	align-items: flex-start;
 	line-height: 1.4em;
+	flex-wrap: wrap;
 }
 
 #footerinfo > * {
 	width: fit-content;
+	flex: 1 1 200px;
+}
+
+
+@media (max-width: 400px) {
+	#footerinfo div {
+		text-align: center;
+		margin-top: 1em;
+	}
 }
 
 #footerinfo ul {
