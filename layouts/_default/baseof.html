@@ -44,14 +44,15 @@
 			{{ if not (eq .Layout "bandkiezer") }}
 			<div id="footerinfo">
 				<div>
-					<em>Contact</em>
+					<em>{{ site.Data.footer.left.title }}</em>
 					<ul>
-						<li>info@boomchickcollective.nl</li>
-						<li>KvK: XXXX</li>
+					{{ range site.Data.footer.left.lines }}
+						<li>{{ . }}</li>
+					{{ end }}
 					</ul>
 				</div>
 				<div>
-					<em>Direct naar</em>
+					<em>{{ site.Data.footer.middle.title }}</em>
 					<ul>
 						{{ range site.Data.nav.nav }}
 						<li><a href="{{ .page }}">{{ .name }}</a></li>

@@ -57,18 +57,28 @@ collections:
                     - { label: "Spotify ID", name: "spotify", widget: "string" }
                     - { label: "Video", name: "video", widget: "image" }
 
+  - name: overig
+    label: Overig
+    editor:
+      preview: false
+    files:
       - label: "Navigatiebalk"
         name: "navigation"
         file: "data/nav.yml"
         fields:
-          - label: "Navigation Items"
+          - label: "Navigation"
             name: "nav"
             widget: "list"
-            field:
-              label: "Item"
-              name: "item"
-              widget: "object"
-              fields:
-                - { label: "Naam", name: "name", widget: "string" }
-                - { label: "URL (bijv. /over-ons/)", name: "page", widget: "string" }
-
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Page", name: "page", widget: "string" }
+      - label: "Footer"
+        name: "footer"
+        file: "data/footer.yml"
+        fields:
+          - label: "Footer"
+            name: "footer"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Page", name: "page", widget: "string" }
