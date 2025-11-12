@@ -2,7 +2,7 @@
 <main>
 	<div id="bandkiezer">
 
-		<form id="dynamicForm" action="https://formsubmit.co/61049eaedc092947edc1123532bc71b2" method="POST">
+		<form id="dynamicForm" name="bandkiezer" data-netlify="true" method="POST">
 			{{ range site.Data.bandkiezer.questions }}
 			{{ $question := . }}
 			<!-- <section class="question {{ if (findRE `^q\d+[a-z]` .id ) }}hidden{{ end }}" id="{{ $question.id }}"> -->
