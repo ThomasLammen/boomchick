@@ -3,12 +3,17 @@ title: Bedankt!!
 layout: thanks
 params:
   themes:
-    - title: latin-vibes
-      spotify: |
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1tJmVBavhzhCvTAYHKZ6Rn?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    - title: lorem-ipsum
-      spotify: |
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1tJmVBavhzhCvTAYHKZ6Rn?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  - name: Italian Romantic
+    spotify: 2NFGlBRAztXc2FoNgEHElz
+    video: gilles.mp4
+  - name: French Café
+    spotify: 3qAKgzooHW3YiTuoOLRnXm
+  - name: Latin Vibes
+    spotify: 3f1cV9clxHrcOUKhAXt8kq
+  - name: Old Skool
+    spotify: 5ijm8cjNwUUCILK2tIGwdv
+  - name: Christmas Classics
+    spotify: 0MlFlLiohQotsA5IiTw3Wu
 ---
 
 ## Gefeliciteerd! De perfecte live muziek voor jouw evenement is:

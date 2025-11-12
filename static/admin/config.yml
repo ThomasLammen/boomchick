@@ -1,0 +1,74 @@
+backend:
+  name: github
+  repo: thomaslammen/boomchick
+  branch: main
+media_folder: static/media
+public_folder: /media
+# site_url: https://abelvanoosterwijk.com # TODO
+collections:
+  - name: paginas
+    label: Pagina's
+    editor:
+      preview: false
+    label_singular: Pagina
+    files:
+      - label: "Home Pagina"
+        name: "home"
+        file: "content/homepage.md" # TODO: index.md after release
+        media_folder: "static/media/carrousel"
+        public_folder: "/media/carrousel"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Slogan", name: "slogan", widget: "markdown" }
+
+      - label: "Over Ons Pagina"
+        name: "over-ons"
+        file: "content/over-ons.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - label: "Contact Pagina"
+        name: "contact"
+        file: "content/contact.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+
+      - label: "Bedankt Pagina"
+        name: "thanks"
+        file: "content/thanks.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Params"
+            name: "params"
+            widget: "object"
+            fields:
+              - label: "Themes"
+                name: "themes"
+                widget: "list"
+                field:
+                  label: "Theme"
+                  name: "theme"
+                  widget: "object"
+                  fields:
+                    - { label: "Themanaam", name: "name", widget: "string" }
+                    - { label: "Spotify ID", name: "spotify", widget: "string" }
+                    - { label: "Video", name: "video", widget: "image" }
+
+      - label: "Navigatiebalk"
+        name: "navigation"
+        file: "data/nav.yml"
+        fields:
+          - label: "Navigation Items"
+            name: "nav"
+            widget: "list"
+            field:
+              label: "Item"
+              name: "item"
+              widget: "object"
+              fields:
+                - { label: "Naam", name: "name", widget: "string" }
+                - { label: "URL (bijv. /over-ons/)", name: "page", widget: "string" }
+

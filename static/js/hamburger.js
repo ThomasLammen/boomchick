@@ -1,10 +1,10 @@
 document.querySelector('.hamburger').addEventListener('click', function() {
 	const nav = document.querySelector('nav.menu');
 	nav.classList.toggle('active');
-	const img = document.querySelector('.header-content img');
-	img.style.transform = this.classList.contains('cross') ? 'rotate(720deg)' : '';
+	const img = document.querySelector('#abslogo img');
+	img.style.transform = this.classList.contains('cross') ? '' : 'rotate(720deg)';
 	const img2 = nav.querySelector('img');
-	img2.style.transform = this.classList.contains('cross') ? 'rotate(720deg)' : '';
+	img2.style.transform = this.classList.contains('cross') ? '': 'rotate(720deg)';
 
 	setTimeout(() => {
 		this.classList.toggle('cross');
