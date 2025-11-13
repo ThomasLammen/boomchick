@@ -15,33 +15,26 @@ questions:
     type: radio
     answers:
       - text: Lente
-        cost: 1000
         theme: Italian Romantic
       - text: Zomer
-        cost: 1200
         theme: Latin Vibes
       - text: Herfst
-        cost: 5
         theme: Lofi Grooves
       - text: Winter
-        cost: 10
         theme: Old Skool
   - id: q2
     title: Waarom wil je muziek?
     type: radio
     answers:
       - text: Bruiloft
-        cost: 1000
         theme: Italian Romantic
       - text: Receptie
         goto: q2a
       - text: Festival
         goto: q2a
-        cost: -1
       - text: Verjaardag
       - text: Bedrijfsfeest
         goto: q2a
-        cost: -1
       - text: Zomaar een feestje!
   - id: q2a
     title: Wat is het thema?
@@ -55,23 +48,22 @@ questions:
       - text: Diner
       - text: Evenement
       - text: Dansfeestje
-        cost: -1
   - id: q4
     title: Hoeveel mensen verwacht je op je (X setting)?
     type: radio
     answers:
       - text: 0-25
-        cost: -1
+        cost: 1
       - text: 25-50
-        cost: -1
+        cost: 1.5
       - text: 50-100
-        cost: -1
+        cost: 2
       - text: 100-200
-        cost: -1
+        cost: 2.5
       - text: 200-500
-        cost: -1
+        cost: 3
       - text: Heel erg veel!
-        cost: -1
+        cost: 3.5
   - id: q5
     title: Hoelang wil je live muziek?
     type: range
@@ -79,9 +71,14 @@ questions:
       - text: Halfuur
       - text: 1 uur
       - text: 2 uur
+      - text: 2.5 uur
+        cost: x1.5
       - text: 3 uur
-      - text: 10 uur
-      - text: De hele dag
+        cost: x2
+      - text: 4 uur
+        cost: x2.5
+      - text: Een dagprogramma
+        cost: =5000
   - id: q6
     title: Is er een thema?
     type: radio
@@ -108,7 +105,7 @@ questions:
     type: radio
     answers:
       - text: Binnen
-      - text: Buiten
+      - text: Buiten (overdekt)
   - id: q8
     title: Waar is het?
     type: text
@@ -119,9 +116,9 @@ questions:
     answers:
       - text: Ja, 1
       - text: Ja, 2
-        cost: 25
+        cost: +50
       - text: Ja, 3
-        cost: 25
+        cost: +50
       - text: Nee
   # - id: q10
   #   title: Wil je er een extra instrument bijboeken?
@@ -152,15 +149,8 @@ questions:
   #     - text: 'Anders:'
   #       cost: 250
   #       type: other
+        #       voor versie twee: op het thanks scherm
   - id: q10
-    title: Wil je nog een optreden boeken op dezelfde dag?
-    subtitle: Bijvoorbeeld in het geval van een diner 's middags, en een feestje 's avonds.
-    type: radio
-    answers:
-      - text: Ja
-        goto: q1
-      - text: Nee
-  - id: q11
     title: Wil je nog iets anders bijzonders melden?
     type: textarea
     skippable: true

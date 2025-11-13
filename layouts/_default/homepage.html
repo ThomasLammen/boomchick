@@ -14,7 +14,13 @@
 			{{ $params := .Params }}
 			{{ range 3 }}
 			{{ range $params.carrousel }}
+			{{ if (hasSuffix . ".mp4") }}
+			<a href="/media/{{ . }}">
+			<video muted autoplay><source src="/media/{{ . }}"></video>
+			</a>
+			{{ else }}
 			<img src="/media/{{ . }}" alt="">
+			{{ end }}
 			{{ end }}
 			{{ end }}
 		</div>

@@ -2,7 +2,7 @@
 <main>
 	<div id="bandkiezer">
 
-		<form id="dynamicForm" name="bandkiezer" data-netlify="true" method="POST">
+		<form id="dynamicForm" action="/thanks/" name="bandkiezer" data-netlify="true" method="POST">
 			{{ range site.Data.bandkiezer.questions }}
 			{{ $question := . }}
 			<!-- <section class="question {{ if (findRE `^q\d+[a-z]` .id ) }}hidden{{ end }}" id="{{ $question.id }}"> -->
@@ -120,9 +120,6 @@
 				<div class="container">
 					<h3>{{ site.Data.bandkiezer.email.text }}</h3>
 					<input type="email" name="email" placeholder="Email Address" autocomplete="email" required>
-					<input type="hidden" name="_next" value='{{ (site.GetPage "/thanks/").Permalink }}'>
-					<input type="hidden" name="_subject" value="New submission!">
-					<input type="hidden" name="_template" value="box">
 					<div class="nav-buttons">
 						<button type="button" onclick="prevPage('last')">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

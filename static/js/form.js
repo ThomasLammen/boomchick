@@ -53,10 +53,10 @@ function prevPage(current) {
 }
 
 function thanksPage(name, change_func) {
-  const el = document.querySelector('input[name="_next"]')
-  const url = new URL(el.value);
+  const el = document.querySelector('form')
+  const url = new URL(el.action);
   url.searchParams.set(name, change_func(url.searchParams.get(name)));
-  el.value = url.toString();
+  el.action = url.toString();
 }
 
 function calcCost() {

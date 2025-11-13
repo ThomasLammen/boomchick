@@ -321,6 +321,10 @@ section {
 	height: 300px;
 	margin-right: 5px;
 }
+.scroller-track video {
+	height: 300px;
+	margin-right: 5px;
+}
 
 @keyframes scroll {
 	from {
