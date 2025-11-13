@@ -60,11 +60,40 @@ function thanksPage(name, change_func) {
 }
 
 function calcCost() {
-  let total = [...document.querySelectorAll('input:checked')]
-    .map(el => Number(el.dataset.cost || 0))
-    .reduce((sum, val) => sum + val, 0)
+  const start_el = document.querySelector('#start-cost');
+  let total = Number(start_el.dataset.startCost);
+  if (!total) {
+    console.error('No start amount!');
+  }
+  document.querySelectorAll('input:checked, input[type="range"]').forEach(el => {
+    if (el.dataset.cost && el.dataset.cost != 0) {
+      const op = el.dataset.cost[0];
+      const num = el.dataset.cost.slice(1);
+      switch (op) {
+        case 'x':
+          total *= num;
+          break;
+        case '+':
+          total += num;
+          break;
+        case '-':
+          total -= num;
+          break;
+        case '=':
+          total = num;
+          return;
+        default:
+          console.warn(`wrong cost for ${el.id}: ${el.dataset.cost}`);
+          break;
+      }
+    }
+  });
 
-  thanksPage('cost', (_) => total);
+  return total;
+}
+
+function roundCost(cost) {
+  return Math.round(cost / 5) * 5;
 }
 
 function setTheme() {
@@ -80,12 +109,15 @@ function onChange(el, goto) {
   enableNextButton(el);
   handleGoto(goto);
   setTheme();
-  calcCost();
 	if (el.type === 'radio') {
 		const fieldset = el.closest('fieldset');
-		console.log(fieldset);
 		nextPage(fieldset.id);
-	}
+	} else if (el.type === 'range') {
+    const value = el.value;
+    const cost = el.dataset[`cost-${value}`];
+    el.dataset.cost = cost;
+  }
+  thanksPage('cost', (_) => calcCost());
 }
 
 (function init() {
@@ -94,6 +126,8 @@ function onChange(el, goto) {
   dates.forEach((d) => d.setAttribute('min', minDate));
 
   document.querySelector('button[type="submit"]').onmouseenter = function() {
+    const cost = calcCost();
+    thanksPage('cost', (_) => roundCost(cost * 1.15));
     window.onbeforeunload = null;
   }
 

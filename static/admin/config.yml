@@ -4,7 +4,7 @@ backend:
   branch: main
 media_folder: static/media
 public_folder: /media
-# site_url: https://abelvanoosterwijk.com # TODO
+site_url: https://boomchickcollective.com
 collections:
   - name: paginas
     label: Pagina's

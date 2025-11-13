@@ -1,3 +1,4 @@
+start_cost: 500
 questions:
   - id: q1
     title: Heb je al een concrete datum?
@@ -41,7 +42,7 @@ questions:
     type: text
   - id: q3
     title: Wat is de setting?
-    subtitle: Wil je meerdere dagdelen muziek? Kies nu 1 van de opties, we komen hier straks bij je op terug!
+    subtitle: Wil je meerdere dagdelen muziek? Kies nu een van de opties, we komen hier straks bij je op terug!
     type: radio
     answers:
       - text: Borrel
@@ -49,21 +50,21 @@ questions:
       - text: Evenement
       - text: Dansfeestje
   - id: q4
-    title: Hoeveel mensen verwacht je op je (X setting)?
+    title: Hoeveel mensen verwacht je?
     type: radio
     answers:
       - text: 0-25
-        cost: 1
+        cost: x1
       - text: 25-50
-        cost: 1.5
+        cost: x1.5
       - text: 50-100
-        cost: 2
+        cost: x2
       - text: 100-200
-        cost: 2.5
+        cost: x2.5
       - text: 200-500
-        cost: 3
+        cost: x3
       - text: Heel erg veel!
-        cost: 3.5
+        cost: x3.5
   - id: q5
     title: Hoelang wil je live muziek?
     type: range

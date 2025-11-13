@@ -1,5 +1,7 @@
 {{ define "content" }}
 <main>
+	<div style="display:none;" id="start-cost" data-start-cost="{{ site.Data.bandkiezer.start_cost }}"></div>
+
 	<div id="bandkiezer">
 
 		<form id="dynamicForm" action="/thanks/" name="bandkiezer" data-netlify="true" method="POST">
@@ -9,6 +11,7 @@
 			<fieldset class="question" {{ if (findRE `^q\d+[a-z]` .id ) }}disabled{{ end }} id="{{ $question.id }}">
 				<div class="container">
 					<h3>{{ .title }}</h3>
+					<p>{{ .subtitle }}</p>
 					{{ if eq .type "radio" }}
 					<ul class="answers">
 						{{ range .answers }}
@@ -85,12 +88,14 @@
 						type="range"
 						id="input-{{ $question.id }}"
 						name="{{ $question.title }}"
+						{{ with $question.placeholder }}placeholder="{{ . }}"{{ end }}
 						min="0"
 						value="0"
 						max="{{ math.Sub (.answers | len) 1 }}"
-						{{ with $question.placeholder }}placeholder="{{ . }}"{{ end }}
-						data-cost = "{{- .cost -}}"
-						data-theme= "{{- or .theme -}}"
+						{{- range $i, $val := .answers }}
+						data-cost-{{ $i }}="{{ $val.cost }}"
+						{{- end }}
+						data-theme="{{- or .theme -}}"
 						onchange="onChange(this, {{ .goto }})"
 						oninput="valueLabel.textContent = answers[this.value].text"
 					>

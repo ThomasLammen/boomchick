@@ -40,6 +40,6 @@ if (params.get('theme')) {
 if (params.get('cost')) {
 	const c = document.createElement('h3');
 	const cost = params.get('cost');
-	c.innerHTML = `Perfecte live muziek voor <em>€${Math.floor(cost)},-</em>`
+	c.innerHTML = `Perfecte live muziek voor <em>€${Math.floor(cost)},-</em> (excl. reiskosten en btw)`
 	document.querySelector('main section ul').insertAdjacentElement('afterend', c);
 }
