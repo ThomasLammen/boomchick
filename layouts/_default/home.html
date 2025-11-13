@@ -1,37 +1,29 @@
-<!DOCTYPE html>
-<html lang="nl">
+{{ define "content" }}
+<main>
+	<p id="tagline">{{ replaceRE "\n\n" "<br>" .Description | safeHTML }}</p>
+	<div class="big-button">
+		<a href="/bandkiezer/">check welke muziek het beste bij jou past</a>
+	</div>
+	<section>
+	</section>
+	{{ .Content }}
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="{{ site.Params.description }} ">
-	<meta name="author" content="{{ site.Title }}">
-	<meta name="robots" content="index, follow">
 
-	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-	<link rel="shortcut icon" href="/favicon.ico" />
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-	<meta name="apple-mobile-web-app-title" content="Boomchick" />
-	<link rel="manifest" href="/site.webmanifest" />
-
-	{{ template "_internal/opengraph.html" . }}
-
-	{{ template "_internal/twitter_cards.html" . }}
-
-	{{ template "_internal/schema.html" . }}
-
-	<link href="css/hamburger.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
-
-	<title>{{ if not .IsHome }}{{ .Path | humanize }} | {{ end }}{{ site.Title }}</title>
-</head>
-
-<body style="background-color: var(--color-beige); height: 100vh; width: 100vw;">
-	<center style="padding-top: 2em;">
-		<img src="/media/logo-cropped.svg" alt="" style="height: 50vh; max-width: 90vw;">
-		<p style="font-size: 3em; color: var(--color-black);">Coming soon!</p>
-	</center>
-</body>
-
-</html>
+	<div class="scroller-container">
+		<div class="scroller-track">
+			{{ $params := .Params }}
+			{{ range 2 }}
+			{{ range $params.carrousel }}
+				{{ if (hasSuffix . ".mp4") }}
+				<a href="{{ . }}">
+				<video muted autoplay><source src="{{ . }}"></video>
+				</a>
+				{{ else }}
+				<img src="{{ . }}" alt="">
+				{{ end }}
+			{{ end }}
+			{{ end }}
+		</div>
+	</div>
+</main>
+{{ end }}

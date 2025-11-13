@@ -18,12 +18,11 @@ collections:
     files:
       - label: "Homepage"
         name: "home"
-        file: "content/homepage.md" # TODO: index.md after release
+        file: "content/_index.md"
         media_folder: "static/media/carrousel"
         public_folder: "/media/carrousel"
         fields:
           - { label: "Titel", name: "title", widget: "string" }
-          - { label: "Layout", name: "layout", widget: "hidden", default: "homepage" }
           - { label: "Slogan", name: "description", widget: "markdown" }
           - label: "Carrouselafbeeldingen"
             name: "carrousel"

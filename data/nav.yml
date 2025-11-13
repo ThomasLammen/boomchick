@@ -1,9 +1,9 @@
 nav:
   - name: Homepagina
-    page: /homepage
+    page: /
   - name: Bandkiezer
-    page: /bandkiezer
+    page: /bandkiezer/
   - name: Over ons
-    page: /over-ons
+    page: /over-ons/
   - name: Contact
-    page: /contact
+    page: /contact/
