@@ -33,7 +33,7 @@ main {
 
 .question {
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,8 +68,8 @@ h3 {
 }
 
 .answers>li {
-  max-height: 10vh;
-  min-height: 8vh;
+  max-height: 10dvh;
+  min-height: 8dvh;
   font-size: 1rem;
 
   &:has(label > input:checked) {
