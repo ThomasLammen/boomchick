@@ -6,13 +6,13 @@ description: |
 
   Good vibes guaranteed.
 carrousel:
-  - horizontaal-midas.mp4
-  - drums.JPG
-  - halloween-1.JPG
-  - halloween-2.JPG
-  - optreden.JPG
-  - halloween-3.JPG
-  - halloween-4.JPG
-  - trambaan.JPG
-  - halloween-5.JPG
+  - /media/horizontaal-midas.mp4
+  - /media/drums.JPG
+  - /media/halloween-1.JPG
+  - /media/halloween-2.JPG
+  - /media/optreden.JPG
+  - /media/halloween-3.JPG
+  - /media/halloween-4.JPG
+  - /media/trambaan.JPG
+  - /media/halloween-5.JPG
 ---

@@ -28,7 +28,7 @@ if (params.get('theme')) {
 				vid.setAttribute('controls', true);
 				vid.setAttribute('width', '80%');
 				const src = document.createElement('source');
-				src.setAttribute('src', `/media/${theme.video}`);
+				src.setAttribute('src', theme.video);
 				vid.appendChild(src);
 				document.querySelector('aside').appendChild(vid);
 				document.querySelector('aside').innerHTML += `<h3>Hier alvast een speciale boodschap voor je!</h3>`;
