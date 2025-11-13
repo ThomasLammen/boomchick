@@ -4,7 +4,7 @@ backend:
   branch: main
 media_folder: static/media
 public_folder: /media
-site_url: https://boomchickcollective.com
+site_url: https://boomchickcollective.netlify.app
 collections:
   - name: paginas
     label: Pagina's
