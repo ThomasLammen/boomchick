@@ -5,6 +5,10 @@ backend:
 media_folder: static/media
 public_folder: /media
 site_url: https://boomchickcollective.netlify.app
+display_url: https://boomchickcollective.nl
+logo:
+  src: https://boomchickcollective.nl/favicon.svg
+  show_in_header: true
 collections:
   - name: paginas
     label: Pagina's
@@ -19,7 +23,15 @@ collections:
         public_folder: "/media/carrousel"
         fields:
           - { label: "Titel", name: "title", widget: "string" }
-          - { label: "Slogan", name: "slogan", widget: "markdown" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "homepage" }
+          - { label: "Slogan", name: "description", widget: "markdown" }
+          - label: "Carrouselafbeeldingen"
+            name: "carrousel"
+            widget: "list"
+            field:
+              label: "Afbeelding/Video"
+              name: "media"
+              widget: "image"
 
       - label: "Over Ons"
         name: "over-ons"
@@ -33,6 +45,7 @@ collections:
         file: "content/contact.md"
         fields:
           - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "contact" }
           - { label: "Tekst", name: "body", widget: "markdown" }
 
       - label: "Bedankt"
@@ -40,6 +53,7 @@ collections:
         file: "content/thanks.md"
         fields:
           - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Layout", name: "layout", widget: "hidden", default: "thanks" }
           - { label: "Tekst", name: "body", widget: "markdown" }
           - label: "Parameters"
             name: "params"
