@@ -6,21 +6,18 @@
 
 	<section>
 		
-	<form name="contact" method="post" data-netlify="true">
-		<label for="name">Naam</label><br>
+	<form name="contact" method="post" data-netlify="true" action='{{ (site.GetPage "/").Permalink }}'>
+		<label for="name">Naam</label>
 		<input type="text" id="name" name="name" required><br><br>
 
-		<label for="email">Email</label><br>
+		<label for="email">Email</label>
 		<input type="email" id="email" name="email" required><br><br>
 
-		<label for="phone">Telefoonnummer</label><br>
+		<label for="phone">Telefoonnummer</label>
 		<input type="tel" id="phone" name="phone"><br><br>
 
-		<label for="message">Bericht</label><br>
+		<label for="message">Bericht</label>
 		<textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
-
-		<input type="hidden" name="_next" value='{{ (site.GetPage "/").Permalink }}'>
-		<input type="hidden" name="_subject" value="Nieuwe vraag via het contactformulier">
 
 		<button type="submit">Verstuur</button>
 	</form>

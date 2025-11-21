@@ -345,6 +345,15 @@ main ul {
 	line-height: 2;
 }
 
+label {
+	display: block;
+}
+
+label:has(+ :is(input, textarea, select)[required])::after {
+	content: "*";
+	color: var(--color-orange);
+}
+
 input[type="text"],
 textarea,
 input[type="submit"],
