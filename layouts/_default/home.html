@@ -12,8 +12,7 @@
 	<div class="scroller-container">
 		<div class="scroller-track">
 			{{ $params := .Params }}
-			{{ range 2 }}
-			{{ range $params.carrousel }}
+			{{ range (shuffle $params.carrousel) }}
 				{{ if (hasSuffix . ".mp4") }}
 				<a href="{{ . }}">
 				<video muted autoplay><source src="{{ . }}"></video>
@@ -21,7 +20,6 @@
 				{{ else }}
 				<img src="{{ . }}" alt="">
 				{{ end }}
-			{{ end }}
 			{{ end }}
 		</div>
 	</div>

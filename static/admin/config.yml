@@ -19,7 +19,7 @@ collections:
       - label: "Homepage"
         name: "home"
         file: "content/_index.md"
-        media_folder: "static/media/carrousel"
+        media_folder: "/static/media/carrousel"
         public_folder: "/media/carrousel"
         fields:
           - { label: "Titel", name: "title", widget: "string" }
