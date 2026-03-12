@@ -1,5 +1,5 @@
 ---
-title: ""
+title: " "
 description: |
   The perfect live music for every occasion.
 
@@ -14,4 +14,8 @@ carrousel:
   - /media/halloween-4.JPG
   - /media/trambaan.JPG
   - /media/halloween-5.JPG
+  - /media/carrousel/bmaestros_newyearseve_abf7749.jpg
+  - /media/carrousel/bmaestros_newyearseve_abf8183.jpg
+  - /media/carrousel/bmaestros_newyearseve_abf8183.jpg
+  - /media/carrousel/bmaestros_newyearseve_abf7667.jpg
 ---
