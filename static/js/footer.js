@@ -1,3 +1,10 @@
+document.querySelectorAll('img').forEach(img => {
+  const match = img.src.match(/https:\/\/drive\.google\.com\/file\/d\/([^/]+)\/view/);
+  if (match) {
+    img.src = `https://drive.google.com/uc?export=view&id=${match[1]}`;
+  }
+});
+
 document.querySelectorAll('footer li').forEach(li => {
   const link = li.querySelector('a[href*="x.com"]');
   if (link) {

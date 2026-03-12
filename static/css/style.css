@@ -430,6 +430,7 @@ footer {
 	align-items: flex-start;
 	line-height: 1.4em;
 	flex-wrap: wrap;
+	gap: 1em;
 }
 
 #footerinfo > * {
@@ -507,4 +508,8 @@ footer {
 	.thanksbox aside video {
 		max-height: 600px;
 	}
+}
+
+footer a:hover {
+	color: var(--color-beige) !important;
 }

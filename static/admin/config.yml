@@ -2,7 +2,7 @@ backend:
   name: github
   repo: thomaslammen/boomchick
   branch: main
-media_folder: static/media
+media_folder: /static/media
 public_folder: /media
 site_url: https://boomchickcollective.netlify.app
 display_url: https://boomchickcollective.nl
@@ -22,7 +22,7 @@ collections:
         media_folder: "/static/media/carrousel"
         public_folder: "/media/carrousel"
         fields:
-          - { label: "Titel", name: "title", widget: "string" }
+          - { label: "Titel", name: "title", widget: "hidden", default: "" }
           - { label: "Slogan", name: "description", widget: "markdown" }
           - label: "Carrouselafbeeldingen"
             name: "carrousel"
@@ -115,3 +115,19 @@ collections:
             widget: "object"
             fields:
               - { label: "Koptekst", name: "title", widget: "string" }
+
+          - label: "Rechter blok"
+            name: "right"
+            widget: "object"
+            fields:
+              - { label: "Koptekst", name: "title", widget: "string" }
+              - label: "Socials"
+                name: "socials"
+                widget: "list"
+                field:
+                  label: "Social"
+                  name: "social"
+                  widget: "object"
+                  fields:
+                    - { label: "URL", name: "url", widget: "string" }
+                    - { label: "Logo afbeelding", name: "logo", widget: "image" }

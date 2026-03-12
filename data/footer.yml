@@ -6,3 +6,10 @@ left:
     - tekst: KVK 66052106
 middle:
   title: Direct naar
+right:
+  title: Volg ons
+  socials:
+    - url: https://instagram.com/boomchickcollective
+      logo: /media/logos/instagram.svg
+    - url: https://youtube.com/@boomchickcollective
+      logo: /media/logos/youtube.svg
