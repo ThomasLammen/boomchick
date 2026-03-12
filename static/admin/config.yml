@@ -28,6 +28,8 @@ collections:
             name: "carrousel"
             widget: "list"
             field:
+              description: |
+                Verander https://drive.google.com/file/d/FILE_ID/view in https://drive.google.com/uc?export=view&id=FILE_ID
               label: "Afbeelding/Video"
               name: "media"
               widget: "image"
@@ -94,7 +96,13 @@ collections:
               - label: "Regels"
                 name: "lines"
                 widget: "list"
-                field: { label: "Regeltekst", name: "line", widget: "string" }
+                field:
+                  label: "Regeltekst"
+                  name: "line"
+                  widget: "object"
+                  fields:
+                    - { label: "Tekst", name: "tekst", widget: "string" }
+                    - { label: "URL", name: "url", widget: "string", required: false }
 
           - label: "Middelste blok"
             name: "middle"

@@ -6,7 +6,11 @@
 			<em>{{ site.Data.footer.left.title | markdownify }}</em>
 			<ul>
 				{{ range site.Data.footer.left.lines }}
-				<li>{{ . | markdownify }}</li>
+					{{ if .url }}
+					<li><a href="{{ .url }}">{{ .tekst | markdownify }}</a></li>
+					{{ else }}
+					<li>{{ .tekst | markdownify }}</li>
+					{{ end }}
 				{{ end }}
 			</ul>
 		</div>

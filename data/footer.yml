@@ -1,7 +1,8 @@
 left:
   title: Contact
   lines:
-    - info@boomchickcollective.nl
-    - KVK 66052106
+    - tekst: info@boomchickcollective.nl
+      url: mailto:@boomchickcollective.nl
+    - tekst: KVK 66052106
 middle:
   title: Direct naar
