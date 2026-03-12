@@ -100,9 +100,10 @@ function setTheme() {
   let lastTheme = [...document.querySelectorAll('input:checked')]
     .map(el => el.dataset.theme)
     .filter(v => v !== undefined && v !== '')
-    .at(-1);
+    .at(-1) || "Zonder thema!";
 
   thanksPage('theme', (_) => lastTheme);
+  document.querySelector('input[name="theme"]').value = lastTheme;
 }
 
 function onChange(el, goto) {
@@ -117,7 +118,9 @@ function onChange(el, goto) {
     const cost = el.dataset[`cost-${value}`];
     el.dataset.cost = cost;
   }
-  thanksPage('cost', (_) => calcCost());
+  const cost = calcCost();
+  thanksPage('cost', (_) => cost);
+  document.querySelector('input[name="price"]').value = cost;
 }
 
 (function init() {
@@ -127,6 +130,7 @@ function onChange(el, goto) {
 
   document.querySelector('button[type="submit"]').onmouseenter = function() {
     const cost = calcCost();
+	document.querySelector('input[name="price"]').value = cost;
     thanksPage('cost', (_) => roundCost(cost * 1.15));
     window.onbeforeunload = null;
   }
