@@ -16,6 +16,5 @@ carrousel:
   - /media/carrousel/halloween-5.JPG
   - /media/carrousel/bmaestros_newyearseve_abf7749.jpg
   - /media/carrousel/bmaestros_newyearseve_abf8183.jpg
-  - /media/carrousel/bmaestros_newyearseve_abf8183.jpg
   - /media/carrousel/bmaestros_newyearseve_abf7667.jpg
 ---
