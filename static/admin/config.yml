@@ -27,6 +27,8 @@ collections:
           - label: "Carrouselafbeeldingen"
             name: "carrousel"
             widget: "list"
+            description: |
+              Verander https://drive.google.com/file/d/FILE_ID/view in https://drive.google.com/uc?export=view&id=FILE_ID
             field:
               description: |
                 Verander https://drive.google.com/file/d/FILE_ID/view in https://drive.google.com/uc?export=view&id=FILE_ID
