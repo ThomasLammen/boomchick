@@ -531,6 +531,15 @@ main:has(> section:nth-child(2)) > section {
 main:has(> section:nth-child(2)) > section:first-child {
 	align-self: flex-end;
 }
+main:has(> section:nth-child(2)) > section:nth-child(2) {
+	order: -1; /* always visually first */
+}
 main:has(> section:nth-child(2)) > section:nth-child(3) {
 	padding-top: 10em;
+}
+
+@media (min-width: 900px) {
+  main:has(> section:nth-child(2)) > section:nth-child(2) {
+    order: 0;
+  }
 }
