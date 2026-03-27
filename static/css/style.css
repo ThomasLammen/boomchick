@@ -76,7 +76,7 @@ header a img {
 
 main {
 	max-width: 90vw;
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	margin-top: 6em;
 }
 
@@ -512,4 +512,25 @@ footer {
 
 footer a:hover {
 	color: var(--color-beige) !important;
+}
+
+
+main:has(> section:nth-child(2)) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; /* prevents sections from stretching to equal height */
+	column-gap: 2rem;
+}
+
+main:has(> section:nth-child(2)) > section {
+	padding-top: 5em;
+  flex: 1 1 400px; /* 300px is a bit narrow for a spotify embed */
+  min-width: 0;    /* prevents iframe from blowing out the flex container */
+	height: 100%;
+}
+main:has(> section:nth-child(2)) > section:first-child {
+	align-self: flex-end;
+}
+main:has(> section:nth-child(2)) > section:nth-child(3) {
+	padding-top: 10em;
 }

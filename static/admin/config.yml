@@ -46,6 +46,16 @@ collections:
         fields:
           - { label: "Titel", name: "title", widget: "string" }
           - { label: "Tekst", name: "body", widget: "markdown" }
+          - label: "Parameters"
+            name: "params"
+            widget: "object"
+            fields:
+              - label: "Links"
+                name: "left"
+                widget: "string"
+              - label: "Rechts"
+                name: "right"
+                widget: "string"
 
       - label: "Contact"
         name: "contact"

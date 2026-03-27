@@ -1,5 +1,8 @@
 ---
 title: Over Ons
+params:
+  left: '{{< spotify type="artist" id="2tl4iu865m51QpHGEAUPoh" width="100%" height="500" >}}'
+  right: '{{< youtube _igWnmR--oA >}}'
 ---
 
 # Muziek op maat!
@@ -28,5 +31,3 @@ veelzijdige groep professionele musici maken we onder andere:
 - Gezellige swing standards
 - Lo-Fi vibes en grooves
 - Of zelfs kerstmuziek tijdens de feestdagen!
-
-{{< spotify type="artist" id="2tl4iu865m51QpHGEAUPoh" width="100%" height="500" >}}
