@@ -1,45 +1,56 @@
 const params = new URLSearchParams(window.location.search);
 
+// 1. Confetti
+new JSConfetti().addConfetti();
 
-const jsConfetti = new JSConfetti()
+// 2. Theme
+function applyTheme(theme) {
+  if (!theme) return;
+  // Title
+  if (theme.name == 'default') {
+	const intro = document.querySelector('section h2');
+	intro.textContent = 'Gefeliciteerd! Boomchick Collective komt op jouw evenement spelen!';
+  } else {
+	const title = document.createElement('h1');
+	title.textContent = theme.name;
+	document.querySelector('section h2').insertAdjacentElement('afterend', title);
+  }
 
-jsConfetti.addConfetti()
-jsConfetti.addConfetti()
+  // Spotify embed
+  const iframe = document.createElement('iframe');
+  Object.assign(iframe, {
+    src: `https://open.spotify.com/embed/album/${theme.spotify}`,
+    width: '90%',
+    height: '300',
+    frameBorder: '0',
+    allow: 'encrypted-media',
+  });
+  iframe.setAttribute('allowtransparency', 'true');
+  document.querySelector('main section ul').insertAdjacentElement('afterend', iframe);
 
-if (params.get('theme')) {
-	const input_theme = params.get('theme');
-	for (var theme of window.themes) {
-		if (theme.name == input_theme) {
-			const title = document.createElement('h1');
-			title.innerText = theme.name;
-			document.querySelector('section h2').insertAdjacentElement('afterend', title);
-			const c = document.createElement('iframe');
-			c.setAttribute('src', `https://open.spotify.com/embed/album/${theme.spotify}`);
-			c.setAttribute('width', '90%');
-			c.setAttribute('height', '300');
-			c.setAttribute('frameborder', '0');
-			c.setAttribute('allowtransparency', 'true');
-			c.setAttribute('allow', 'encrypted-media');
-			document.querySelector('main section ul').insertAdjacentElement('afterend', c);
-
-			if (theme.video) {
-				const vid = document.createElement('video');
-				vid.setAttribute('autoplay', true);
-				vid.setAttribute('controls', true);
-				vid.setAttribute('width', '80%');
-				const src = document.createElement('source');
-				src.setAttribute('src', theme.video);
-				vid.appendChild(src);
-				document.querySelector('aside').appendChild(vid);
-				document.querySelector('aside').innerHTML += `<h3>Hier alvast een speciale boodschap voor je!</h3>`;
-			}
-		}
-	}
+  // Optional video
+  if (theme.video) {
+    const aside = document.querySelector('aside');
+    const vid = Object.assign(document.createElement('video'), {
+      autoplay: true,
+      controls: true,
+    });
+	vid.style.width = '80%';
+    vid.appendChild(Object.assign(document.createElement('source'), { src: theme.video }));
+    aside.appendChild(vid);
+    aside.insertAdjacentHTML('beforeend', '<h3>Hier alvast een speciale boodschap voor je!</h3>');
+  }
 }
 
-if (params.get('cost')) {
-	const c = document.createElement('h3');
-	const cost = params.get('cost');
-	c.innerHTML = `Perfecte live muziek voor <em>€${Math.floor(cost)},-</em> (excl. reiskosten en btw)`
-	document.querySelector('main section ul').insertAdjacentElement('afterend', c);
+const inputTheme = params.get('theme');
+let match = window.themes.find(t => t.name === inputTheme);
+let fallback = window.themes.find(t => t.name === 'default');
+applyTheme(match?? fallback);
+
+// 3. Cost
+const cost = params.get('cost');
+if (cost) {
+  const h3 = document.createElement('h3');
+  h3.innerHTML = `Perfecte live muziek voor <em>€${Math.floor(cost)},-</em> (excl. reiskosten en btw)`;
+  document.querySelector('main section ul').insertAdjacentElement('afterend', h3);
 }

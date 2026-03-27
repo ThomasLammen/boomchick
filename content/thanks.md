@@ -3,6 +3,9 @@ title: Bedankt!!
 layout: thanks
 params:
   themes:
+  - name: default
+    spotify: 2NFGlBRAztXc2FoNgEHElz
+    video: /media/thanks-frank.mp4
   - name: Italian Romantic
     spotify: 2NFGlBRAztXc2FoNgEHElz
     video: /media/thanks-gilles.mp4
